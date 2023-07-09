@@ -8,11 +8,14 @@
   * {
     @apply font-[Ubuntu_sans-serif] transition-all
   }
+  html {
+    @apply text-neutral-800 dark:text-neutral-200
+  }
   h1,h2,h3,h4,h5,h6,p,img,a,table {
     @apply scroll-mt-24
   }
   body {
-    @apply bg-neutral-200
+    @apply bg-neutral-200 dark:bg-neutral-800
   }
   header {
     @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 text-neutral-200 mx-auto z-10
@@ -45,7 +48,7 @@
     @apply grow
   }
   article {
-    @apply prose grow max-w-none mx-auto
+    @apply prose prose-lg prose-neutral dark:prose-invert grow max-w-none mx-auto
   }
   aside {
     @apply md:w-64 sticky top-0
@@ -66,13 +69,13 @@
     @apply aspect-square bg-cover bg-center rounded-full border-2 border-bronze-500
   }
   #article-info {
-    @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 bg-bronze-300 border-b-2 border-bronze-600 text-bronze-600 rounded-md shadow-md
+    @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 border-b-2 bg-bronze-300 border-bronze-600 text-bronze-600 dark:bg-bronze-600 dark:border-bronze-800 dark:text-bronze-800 rounded-md shadow-md
   }
   #article-author {
   @apply flex gap-2 items-center font-bold text-xl max-sm:flex-col
   }
   #article-pp {
-    @apply m-0 rounded-full border-bronze-600 border-2 shadow-md
+    @apply m-0 rounded-full border-bronze-600 dark:border-bronze-800 border-2 shadow-md
   }
   #article-category,
   #article-date {
