@@ -1,8 +1,8 @@
-import { Mdx } from "@/components/Mdx"
+import { Mdx } from "@/components/template/Mdx"
 import { allDocs } from "contentlayer/generated"
 import { notFound } from "next/navigation"
 
-interface PageProps {
+type PageProps = {
   params: {
     slug: string
   }

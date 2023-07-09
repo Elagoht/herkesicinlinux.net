@@ -35,8 +35,14 @@
   body > div {
     @apply max-w-5xl mx-auto max-xs:mt-0 mt-24
   }
+  main {
+    @apply grow
+  }
   article {
-    @apply prose max-w-5xl mx-auto p-4
+    @apply prose max-w-5xl mx-auto
+  }
+  aside {
+    @apply md:w-64
   }
   aside nav {
     @apply flex flex-col gap-2

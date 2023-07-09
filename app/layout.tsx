@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Header />
-        <div className="flex max-md:flex-col-reverse">
+        <div className="flex max-md:flex-col gap-6 p-4">
           <Main>
             {children}
           </Main>
