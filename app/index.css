@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  * {
+    @apply font-[Ubuntu_sans-serif] transition-all
+  }
+  body {
+    @apply bg-neutral-200
+  }
+  header {
+    @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 text-neutral-200 mx-auto
+  }
+  header > div {
+    @apply mx-auto max-w-5xl lg:rounded-b-xl flex justify-between bg-neutral-950 lg:px-8 px-2 shadow-md
+  }
+  header div > div {
+    @apply flex gap-4 items-center font-bold text-xl flex-shrink-0
+  }
+  header div > div > div {
+    @apply max-sm:-translate-y-20 max-[630px]:hidden flex-shrink
+  }
+  header div > div > a {
+    @apply -mt-3 -mb-10 max-xs:-mb-3 max-xs:-mt-10
+  }
+  header nav {
+    @apply flex max-xs:justify-center max-xs:flex-1
+  }
+  header nav a {
+    @apply h-16 flex justify-center items-center p-2 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1
+  }
+  body > div {
+    @apply max-w-5xl mx-auto max-xs:mt-0 mt-24
+  }
+  article {
+    @apply prose max-w-5xl mx-auto p-4
+  }
+}
