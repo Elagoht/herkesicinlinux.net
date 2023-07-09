@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Comfortaa", "sans-serif"],
-        mono: ["'Fira Code'", "monospace"]
+        mono: ["Fira Code", "monospace"]
       },
       screens: {
         "xs": "512px"
