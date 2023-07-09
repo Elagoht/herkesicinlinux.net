@@ -11,6 +11,7 @@ const computedFields = {
     resolve: (doc) => `/${doc._raw.flattenedPath}`,
   },
   category: {
+    type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/")[0]
   },
   slug: {

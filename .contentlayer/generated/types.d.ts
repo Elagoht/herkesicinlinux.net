@@ -22,7 +22,7 @@ export type Doc = {
   /** MDX file body */
   body: MDX
   path: string
-  category: undefined
+  category: string
   slug: string
 }  
 

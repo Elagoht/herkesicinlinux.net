@@ -1,4 +1,5 @@
 import capitalize from "@/utils/capitalization"
+import { getAllFromCategory } from "@/utils/category"
 import { epochToDate } from "@/utils/dates"
 import { allDocs } from "contentlayer/generated"
 import Image from "next/image"
@@ -11,20 +12,12 @@ type PageProps = {
   }
 }
 
-async function getDocFromParams(category: string) {
-  const docs = allDocs
-  const blogs = docs.find((doc) => doc.category === category)
+const page = ({ params }: PageProps) => {
 
-  if (!blogs) notFound()
-  return blogs
-}
-
-const page = async ({ params }: PageProps) => {
-
-  const docs = await getDocFromParams(params.category)
+  const docs = getAllFromCategory(params.category)
   return <div className="flex flex-col gap-4 flex-wrap">
     <div className="text-2xl font-bold">&quot;{capitalize(params.category)}&quot; kategorisine ait bloglar listeleniyor.</div>
-    {allDocs.map((doc, index) => (
+    {docs.map((doc, index) => (
       <Link href={"/makale/" + doc.path}
         className="blog" key={index}
       >
