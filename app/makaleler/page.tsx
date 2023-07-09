@@ -8,7 +8,7 @@ const page = () => {
 
   return <div className="flex flex-col gap-4 flex-wrap">
     {allDocs.map((doc, index) => (
-      <Link href={"/makale/" + doc.slugAsParams}
+      <Link href={"/makale/" + doc.path}
         className="blog" key={index}
       >
         <div className="font-bold text-lg">{doc.title}</div>

@@ -21,8 +21,9 @@ export type Doc = {
   published: boolean
   /** MDX file body */
   body: MDX
+  path: string
+  category: undefined
   slug: string
-  slugAsParams: string
 }  
 
 /** Nested types */

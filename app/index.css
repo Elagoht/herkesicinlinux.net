@@ -8,6 +8,9 @@
   * {
     @apply font-[Ubuntu_sans-serif] transition-all
   }
+  h1,h2,h3,h4,h5,h6,p,img,a,table {
+    @apply scroll-mt-24
+  }
   body {
     @apply bg-neutral-200
   }
@@ -42,7 +45,7 @@
     @apply grow
   }
   article {
-    @apply prose max-w-7xl mx-auto
+    @apply prose grow max-w-none mx-auto
   }
   aside {
     @apply md:w-64 sticky top-0
@@ -61,5 +64,18 @@
   }
   aside nav a div img {
     @apply aspect-square bg-cover bg-center rounded-full border-2 border-bronze-500
+  }
+  #article-info {
+    @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 bg-bronze-300 border-b-2 border-bronze-600 text-bronze-600 rounded-md shadow-md
+  }
+  #article-author {
+  @apply flex gap-2 items-center font-bold text-xl max-sm:flex-col
+  }
+  #article-pp {
+    @apply m-0 rounded-full border-bronze-600 border-2 shadow-md
+  }
+  #article-category,
+  #article-date {
+    @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse
   }
 }

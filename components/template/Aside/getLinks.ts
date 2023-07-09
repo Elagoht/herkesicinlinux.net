@@ -5,7 +5,7 @@ export const getLatestContents: () => AsideLink[] = () => {
   const docs = allDocs.sort((doc) => doc.date)
   return docs.map((doc) => ({
     name: doc.title,
-    link: doc.slugAsParams,
+    link: doc.slug,
     icon: doc.cover
   }))
 }

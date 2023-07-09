@@ -2,7 +2,6 @@
 import { useRouter } from 'next/navigation'
 import { FC, useEffect, useState } from 'react'
 
-
 const Page: FC = () => {
 
   const [time, setTime] = useState(3)
