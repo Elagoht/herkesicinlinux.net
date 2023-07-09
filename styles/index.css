@@ -20,19 +20,19 @@
     @apply bg-neutral-200 dark:bg-neutral-800
   }
   header {
-    @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 text-neutral-200 mx-auto z-10
+    @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 mx-auto z-10
   }
   header > div {
     @apply card max-xs:border-t-4 max-xs:border-b-0 !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
   }
-  header div > div {
-    @apply flex gap-4 items-center font-bold text-xl flex-shrink-0
+  header div > a {
+    @apply flex gap-2 items-center font-bold text-xl flex-shrink-0
   }
-  header div > div > div {
-    @apply max-sm:-translate-y-20 max-[630px]:hidden flex-shrink
-  }
-  header div > div > a {
-    @apply w-16 max-xs:hidden
+  header div > a > div {
+    @apply max-[630px]:hidden flex-shrink
+    }
+  header div > a > img {
+    @apply max-xs:hidden
   }
   header nav {
     @apply flex max-xs:justify-center max-xs:flex-1
@@ -41,7 +41,7 @@
     @apply h-16 flex justify-center items-center p-2 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:text-bronze-300
   }
   header nav a.active {
-    @apply bg-neutral-800
+    @apply bg-neutral-200 dark:bg-neutral-900
   }
   body > div {
     @apply max-w-7xl mx-auto max-xs:mb-24 xs:mt-24
@@ -50,7 +50,7 @@
     @apply grow
   }
   article {
-    @apply prose prose-pre:card dark:prose-pre:!bg-neutral-900 prose-lg prose-neutral dark:prose-invert grow max-w-none mx-auto
+    @apply prose prose-pre:card dark:prose-pre:!bg-neutral-900 prose-neutral dark:prose-invert grow max-w-none mx-auto
   }
   code {
     @apply !font-normal
@@ -61,8 +61,11 @@
   aside {
     @apply md:w-64 flex-shrink-0 sticky top-0
   }
+  aside nav > span {
+    @apply text-bronze-600 mb-2
+  }
   aside nav {
-    @apply flex flex-col gap-2
+    @apply flex flex-col gap-2 card p-4
   }
   aside nav > span {
     @apply font-bold

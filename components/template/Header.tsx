@@ -10,10 +10,10 @@ const Header: FC = () => {
 
   return <header>
     <div>
-      <div>
-        <Link href="/"><Image unoptimized width={76} height={76} src="/linuxforeveryone.svg" alt="amblem" /></Link>
-        <div> Herkes İçin Linux</div>
-      </div>
+      <Link href="/">
+        <Image width={48} height={48} src="/linuxforeveryone.svg" alt="amblem" />
+        <div>Herkes İçin Linux</div>
+      </Link>
       <nav>
         <Link className={pathname.split("/")[1] == "" ? "active" : undefined} href="/"><Home /></Link>
         <Link className="hidden" href="/"></Link>
