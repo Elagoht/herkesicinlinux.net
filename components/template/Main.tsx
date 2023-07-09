@@ -1,8 +1,9 @@
+import { FC } from "react"
 type MainProps = {
   children: React.ReactNode
 }
 
-const Main: React.FC<MainProps> = ({ children }: MainProps) => {
+const Main: FC<MainProps> = ({ children }: MainProps) => {
 
   return <main>
     {children}

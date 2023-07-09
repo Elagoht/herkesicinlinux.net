@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import "./index.css"
-import Header from '@/components/Header'
-import Main from '@/components/Main'
+import Header from '@/components/template/Header'
+import Main from '@/components/template/Main'
+import Aside from '@/components/template/Aside'
 
 export const metadata: Metadata = {
   title: "Herkes İçin Linux",
@@ -13,10 +14,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Header />
-        <div>
+        <div className="flex max-md:flex-col-reverse">
           <Main>
             {children}
           </Main>
+          <Aside />
         </div>
       </body>
     </html>

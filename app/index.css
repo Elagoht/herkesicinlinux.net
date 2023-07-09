@@ -38,4 +38,16 @@
   article {
     @apply prose max-w-5xl mx-auto p-4
   }
+  aside nav {
+    @apply flex flex-col gap-2
+  }
+  aside nav > span {
+    @apply font-bold
+  }
+  aside nav a > div {
+    @apply flex gap-2 items-center
+  }
+  aside nav a div div {
+    @apply w-12 h-12 aspect-square bg-cover rounded-full border-2 border-orange-500
+  }
 }

@@ -1,8 +1,9 @@
-import { ClipboardList, Compass, Contact, FileText, GraduationCap, Newspaper, Package, Youtube } from "lucide-react"
+import { FC } from "react"
+import { Contact, FileText, GraduationCap, Package, Youtube } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   return <header>
     <div>
       <div>
