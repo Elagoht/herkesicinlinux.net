@@ -33,10 +33,6 @@ export const Doc = defineDocumentType(() => ({
       type: "string",
       required: true
     },
-    cover: {
-      type: "string",
-      required: true,
-    },
     author: {
       type: "string",
       required: true
@@ -54,7 +50,7 @@ export const Doc = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: "./content",
+  contentDirPath: "./articles",
   documentTypes: [Doc],
   mdx: {
     remarkPlugins: [remarkGfm],

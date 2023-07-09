@@ -8,12 +8,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["'Noto Serif'", "serif"],
-        sans: ["Ubuntu", "sans-serif"],
-        mono: ["'Ubuntu Mono'", "mono"],
+        sans: ["Comfortaa", "sans-serif"],
+        mono: ["'Fira Code'", "monospace"]
       },
       screens: {
-        "xs": "480px"
+        "xs": "512px"
       },
       content: {
         empty: "\"\"",

@@ -15,7 +15,6 @@ export type Doc = {
   type: 'Doc'
   title: string
   description: string
-  cover: string
   author: string
   date: number
   published: boolean

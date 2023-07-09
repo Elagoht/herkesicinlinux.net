@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
+  ::-webkit-scrollbar { @apply bg-bronze-700 w-2 h-2 }
+  ::-webkit-scrollbar-thumb { @apply bg-neutral-950 }
   * {
-    @apply font-[Ubuntu_sans-serif] transition-all
+    @apply font-sans transition-all
   }
   html {
     @apply text-neutral-800 dark:text-neutral-200
@@ -21,7 +23,7 @@
     @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 text-neutral-200 mx-auto z-10
   }
   header > div {
-    @apply mx-auto max-w-7xl xl:rounded-b-xl flex justify-between bg-neutral-950 lg:px-8 px-2 shadow-md
+    @apply card max-xs:border-t-4 max-xs:border-b-0 !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
   }
   header div > div {
     @apply flex gap-4 items-center font-bold text-xl flex-shrink-0
@@ -30,7 +32,7 @@
     @apply max-sm:-translate-y-20 max-[630px]:hidden flex-shrink
   }
   header div > div > a {
-    @apply -mt-3 -mb-10 max-xs:-mb-3 max-xs:-mt-10
+    @apply w-16 max-xs:hidden
   }
   header nav {
     @apply flex max-xs:justify-center max-xs:flex-1
@@ -39,19 +41,19 @@
     @apply h-16 flex justify-center items-center p-2 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:text-bronze-300
   }
   header nav a.active {
-    @apply brightness-125
+    @apply bg-neutral-800
   }
   body > div {
-    @apply max-w-7xl mx-auto max-xs:mt-0 mt-24
+    @apply max-w-7xl mx-auto max-xs:mb-24 xs:mt-24
   }
   main {
     @apply grow
   }
   article {
-    @apply prose prose-lg prose-neutral dark:prose-invert grow max-w-none mx-auto
+    @apply prose prose-pre:card dark:prose-pre:!bg-neutral-900 prose-lg prose-neutral dark:prose-invert grow max-w-none mx-auto
   }
   aside {
-    @apply md:w-64 sticky top-0
+    @apply md:w-64 flex-shrink-0 sticky top-0
   }
   aside nav {
     @apply flex flex-col gap-2
@@ -65,20 +67,38 @@
   #aside-slider {
     @apply flex flex-col w-64 sticky top-28 max-lg:w-full gap-4;
   }
-  aside nav a div img {
-    @apply aspect-square bg-cover bg-center rounded-full border-2 border-bronze-500
+  aside nav a div svg {
+    @apply flex-shrink-0
   }
   #article-info {
-    @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 border-b-2 bg-bronze-300 border-bronze-600 text-bronze-600 dark:bg-bronze-600 dark:border-bronze-800 dark:text-bronze-800 rounded-md shadow-md
+    @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 card
   }
   #article-author {
-  @apply flex gap-2 items-center font-bold text-xl max-sm:flex-col
+  @apply flex gap-4 items-center font-bold text-xl max-sm:flex-col
   }
   #article-pp {
-    @apply m-0 rounded-full border-bronze-600 dark:border-bronze-800 border-2 shadow-md
+    @apply m-0 card rounded-full border-2 shadow-md
   }
   #article-category,
   #article-date {
-    @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse
+    @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit
+  }
+  .container {
+    @apply flex flex-col gap-4 flex-wrap
+  }
+  #blog-container { @apply grid gap-4 xs:grid-cols-2 }
+  .blog-box { @apply card overflow-hidden p-4 }
+  .blog-title { @apply font-bold text-lg line-clamp-1 text-bronze-600}
+  .blog-box svg { @apply shrink-0 }
+  .blog-info { @apply flex flex-col gap-y-2 }
+  .blog-date, .blog-category, .blog-desc { @apply flex gap-1 leading-relaxed }
+  .blog-desc { @apply line-clamp-2 }
+  .category-container { @apply flex flex-wrap gap-4 xs:grid-cols-2 }
+  .category-box { @apply card p-2 px-3 w-min flex gap-2 items-center no-underline }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-neutral-100 border-bronze-400 dark:bg-neutral-950 dark:border-bronze-700 border-b-4 shadow-md rounded-xl
   }
 }

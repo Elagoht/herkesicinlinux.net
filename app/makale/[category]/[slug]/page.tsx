@@ -28,15 +28,15 @@ const page = async ({ params }: PageProps) => {
   return <article>
     <div id="article-info">
       <div id="article-author">
-        <Image width={64} height={64} id="article-pp" src={getAuthorPicture(doc.author)} alt={doc.author} />
+        <Image width={96} height={96} id="article-pp" src={getAuthorPicture(doc.author)} alt={doc.author} />
         {doc.author}
       </div>
       <div className="flex sm:flex-col sm:items-end gap-4 flex-wrap">
         <div id="article-date">
           {epochToDate(doc.date)}
-          <CalendarDays />
+          <CalendarDays strokeWidth={1.5} />
         </div>
-        <Link id="article-category" href={"/makale/" + doc.category}>
+        <Link id="article-category" href={"/kategori/" + doc.category}>
           {capitalize(doc.category)}
           {getCategoryIcon(doc.category)}
         </Link>

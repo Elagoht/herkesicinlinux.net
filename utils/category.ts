@@ -3,8 +3,8 @@ import { File, FileText, Newspaper, Sparkles, LucideProps } from "lucide-react"
 import React, { FunctionComponentElement } from "react"
 
 export const getCategoryIcon:
-  (category: string) => FunctionComponentElement<LucideProps> =
-  (category) => {
+  (category: string, size?: number) => FunctionComponentElement<LucideProps> =
+  (category, size = 24) => {
     let icon
     switch (category) {
       case "rehber": icon = FileText; break
@@ -12,7 +12,7 @@ export const getCategoryIcon:
       case "öneri": icon = Sparkles; break
       default: icon = File; break
     }
-    return React.createElement(icon, null, "") as FunctionComponentElement<LucideProps>
+    return React.createElement(icon, { size, strokeWidth: 1.5 }, "") as FunctionComponentElement<LucideProps>
   }
 
 export const getAllCategories:
