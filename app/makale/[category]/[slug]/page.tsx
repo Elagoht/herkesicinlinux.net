@@ -7,6 +7,7 @@ import { notFound } from "next/navigation"
 import { CalendarDays } from "lucide-react"
 import { getCategoryIcon } from "@/utils/category"
 import capitalize from "@/utils/capitalization"
+import Link from "next/link"
 
 type PageProps = {
   params: {
@@ -35,10 +36,10 @@ const page = async ({ params }: PageProps) => {
           {epochToDate(doc.date)}
           <CalendarDays />
         </div>
-        <div id="article-category">
-          {doc.category && capitalize(doc.category)}
-          {doc.category && getCategoryIcon(doc.category)}
-        </div>
+        <Link id="article-category" href={"/makale/" + doc.category}>
+          {capitalize(doc.category)}
+          {getCategoryIcon(doc.category)}
+        </Link>
       </div>
     </div>
     <Mdx code={doc.body.code} />

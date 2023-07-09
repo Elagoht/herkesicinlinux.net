@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import "./index.css"
+import "@/styles/index.css"
 import Header from '@/components/template/Header'
 import Main from '@/components/template/Main'
 import Aside from '@/components/template/Aside'
