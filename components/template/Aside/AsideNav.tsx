@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
@@ -17,12 +18,12 @@ const AsideNav: FC<AsideProps> = ({ title, links }) => {
     {links.map((link, i) => (
       <Link key={i} href={link.link}>
         <div>
-          <div style={{ backgroundImage: `url("${link.icon}")` }}></div>
+          <Image width={48} height={48} src={`/uploads/blogs/covers/${link.icon}`} alt={link.name} />
           <span>{link.name}</span>
         </div>
       </Link>
     ))}
-  </nav>
+  </nav >
 }
 
 export default AsideNav

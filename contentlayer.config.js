@@ -27,6 +27,19 @@ export const Doc = defineDocumentType(() => ({
     },
     description: {
       type: "string",
+      required: true
+    },
+    cover: {
+      type: "string",
+      required: true,
+    },
+    author: {
+      type: "string",
+      required: true
+    },
+    date: {
+      type: "number",
+      required: true
     },
     published: {
       type: "boolean",

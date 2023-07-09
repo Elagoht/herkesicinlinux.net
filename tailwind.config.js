@@ -7,14 +7,35 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        serif: ["'Noto Serif'", "serif"],
+        sans: ["Ubuntu", "sans-serif"],
+        mono: ["'Ubuntu Mono'", "mono"],
       },
-      screens:{
-        "xs":"480px"
-      }
+      screens: {
+        "xs": "480px"
+      },
+      content: {
+        empty: "\"\"",
+        locate: "url('/src/assets/design/locate.png')",
+      },
+      colors: {
+        bronze: {
+          50: "#f7f4f2",
+          100: "#efe9e5",
+          200: "#dfd3cb",
+          300: "#cfbcb1",
+          400: "#bfa697",
+          500: "#af907d",
+          600: "#8c7364",
+          700: "#69564b",
+          800: "#463a32",
+          900: "#231d19"
+        }
+      },
+      backgroundImage: {
+        metacity: "url('/src/assets/design/metacity.png')",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

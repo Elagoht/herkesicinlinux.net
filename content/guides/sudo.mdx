@@ -1,0 +1,53 @@
+---
+title: Su ve Sudo Arasındaki Farklar
+description: Su ve sudo kullanırken farklılıklarını göz önünde bulundurarak hangisini kullanacağınıza karar verin.
+author: Furkan Baytekin
+cover: ccpenguin.jpg
+date: 1688908243
+---
+
+# Sudo Nedir?
+
+"Super user do" anlamına gelen bu komut, bir komutu bir başka kullanıcı olarak çalıştırmanıza yarar. Aksini belirtmediğiniz sürece işlemler root kullanıcısı tarafından çalıştırılacaktır. Normal bir komut yazıp başına sudo eklemeniz yeterlidir.
+```sh
+whoami
+user
+sudo whoami
+[sudo] password for user: 
+root
+sudo --user otheruser whoami     
+otheruser
+```
+    
+Varsayılan ayar bir kullanıcıyla işlem yaptıktan sonra 5 dakika boyunca bir daha şifre istenmemesi yönündedir. Unutmayın, sudo komutunda o anki aktif kullanıcının şifresi girilir. İşlem yapılacak kullanıcının şifresi değil.
+
+Sudo komutu sistemdeki her kullanıcı olarak işlem yapabilmenizi sağlayabilir. Bu nedenle kimlere sudo komutu kullanım hakkı verileceğine dikkat edilmelidir. Bu izin tek tek kişilere verilebileceği gibi gruplara da verilebilir. İzinler "/etc/sudoers" dosyasında bulunmaktadır. Bu dosyayı düzenlemek için visudo komutunu kullanabilirsiniz. 
+
+Son kullanıcıya hazır sunulan birçok sistemde root kullanıcısı ve wheel grubu sudo üzerinde tüm yetkilere sahip olarak gelmektedir. Kurulumunu kendiniz yaptığınız sistemlerde (Arch, Void, Gentoo vb.) bu düzenlemeleri kendiniz yapmalısınız.
+
+Kendi kullanıcınız ile `groups` komutunu kullandığınızda muhtemelen çoktan "wheel" grubunda olduğunuzu göreceksiniz. Zaten bu sayede kök yetkileri ile bir işlem gerçekleştirebilmektesiniz. 
+
+# Su nedir?
+
+"Switch user" anlamına gelmektedir ve belirtilen kullanıcı olarak bir kabuk programı başlatmanızı sağlar. Aksi belirtilmedikçe geçilecek kullanıcının kabuk programı başlatılır. Yani konsol üzerinde başka bir kullanıcıya giriş yapmış olursunuz. Bu kabuk programını kapattığınızda (kullanıcıdan çıkış yaptığınızda) kendi kabuk programınıza geri dönersiniz. Varsayılan olarak root kullanıcısına giriş yapılır.
+
+Sudo komutundan farklı olarak, bir zaman sınırlaması yoktur. Bir işlem bittiği zaman geri eski kullanıcıya dönmezsiniz. Yeni bir kullanıcı hesabına giriş yapmış olursunuz. Giriş yaparken kendi kullanıcınızın değil, hesabına giriş yapacağınız kullanıcının şifresini girersiniz. Sadece root kullanıcısı bir kullanıcı hesabına girerken şifre girmez.
+
+```sh
+user@pc:~$ su
+Password:
+root@pc:/home/user#
+root@pc:/home/user# su otheruser
+otheruser@pc:/home/user$ su user
+Password:
+user@pc :~$
+```
+
+Giriş kabuğu olarak geçiş yapmak ve önceki değişikliklerden etkilenmemek için kısa çizgi (-) parametresini kullanabilirsiniz.
+```sh
+user@pc:~$ su -
+Password:
+root@pc:~$ 
+```
+    
+Umarım bu videonun sizlere faydası olmuştur. Bir sonraki videoda görüşmek üzere.
