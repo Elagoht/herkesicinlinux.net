@@ -1,5 +1,5 @@
 import { useMDXComponent } from "next-contentlayer/hooks"
-
+import "./terminal.css"
 
 type MdxProps = {
   code: string

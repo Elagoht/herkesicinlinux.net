@@ -24,5 +24,7 @@ export const getAllCategories:
 export const getAllFromCategory:
   (category: string) => Doc[] =
   (category) => {
-    return allDocs.filter(doc => doc.category === category)
+    return [...allDocs.filter(doc => doc.category === category)]
+      .sort((a, b) => b.date - a.date)
+      .slice(0, 5)
   }

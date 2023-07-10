@@ -18,7 +18,7 @@ const Page: FC = () => {
       1000
     )
     return () => clearInterval(timeout)
-  }, [])
+  }, [router])
 
   return <div>
     <p>Aradığınız makale henüz yazılmamış 🤯.</p>

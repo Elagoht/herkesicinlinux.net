@@ -1,12 +1,11 @@
 import { allDocs } from '@/.contentlayer/generated'
 import BlogBox from '@/components/BlogBox'
-import { getAllCategories } from '@/utils/category'
 import Categories from '@/components/Categories'
 
 const page = () => {
-  const categories = getAllCategories()
+  console.log(allDocs)
 
-  return <BlogBox title="Tüm İçerikler" docs={allDocs}>
+  return <BlogBox title="Tüm İçerikler" docs={[...allDocs].sort((a, b) => b.date - a.date)}>
     <Categories />
   </BlogBox>
 }

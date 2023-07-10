@@ -16,7 +16,7 @@ module.exports = {
       },
       content: {
         empty: "\"\"",
-        locate: "url('/src/assets/design/locate.png')",
+        locate: "url('/assets/design/locate.png')",
       },
       colors: {
         bronze: {
@@ -33,7 +33,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        metacity: "url('/src/assets/design/metacity.png')",
+        metacity: "url('/assets/design/metacity.png')",
       },
     },
   },
