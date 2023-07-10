@@ -1,4 +1,6 @@
-import { Github, GraduationCap, Linkedin, Mail, Plane, Youtube } from 'lucide-react'
+import { getAllCategories, getCategoryIcon } from '@/utils/category'
+import { capitalizeTurkish } from '@/utils/turkish'
+import { Github, GraduationCap, Instagram, Linkedin, Mail, Plane, Youtube } from 'lucide-react'
 import React, { FC } from 'react'
 
 const Footer: FC = () => {
@@ -12,8 +14,9 @@ const Footer: FC = () => {
         <section>
           <h2>Bağlantılar</h2>
           <ul>
-            <a target="_blank" rel="noreferrer" href="https://www.youtube.com/@herkesicinlinux"><li><Youtube /> Youtube Kanalı</li></a>
-            <a target="_blank" rel="noreferrer" href="https://www.udemy.com/user/furkan-baytekin/"><li><GraduationCap /> Udemy Kursları</li></a>
+            <a target="_blank" rel="noreferrer" href="https://www.youtube.com/@herkesicinlinux"><li><Youtube /> Youtube</li></a>
+            <a target="_blank" rel="noreferrer" href="https://www.udemy.com/user/furkan-baytekin/"><li><GraduationCap /> Udemy</li></a>
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/herkesicinlinux/"><li><Instagram /> Instagram</li></a>
             <a target="_blank" rel="noreferrer" href="https://github.com/Herkes-Icin-Linux/"><li><Github /> Github / Herkes İçin Linux</li></a>
             <a target="_blank" rel="noreferrer" href="https://github.com/Elagoht/"><li><Github /> Github / Elagoht</li></a>
           </ul>
@@ -27,11 +30,11 @@ const Footer: FC = () => {
           </ul>
         </section>
         <section>
-          <h2>Katkıda Bulunun!</h2>
+          <h2>İçerikler</h2>
           <ul>
-            <a target="_blank" rel="noreferrer" href="mailto:furkanbaytekin@gmail.com"><li><Mail /> e-Posta</li></a>
-            <a target="_blank" rel="noreferrer" href="https://t.me/Elagoht"><li><Plane /> Telegram</li></a>
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/furkan-baytekin"><li><Linkedin /> LinkedIn</li></a>
+            {getAllCategories().map((category, index) => (
+              <a key={index} href={"/kategori/" + category}><li>{getCategoryIcon(category)} {capitalizeTurkish(category)}</li></a>
+            ))}
           </ul>
         </section>
       </div>
