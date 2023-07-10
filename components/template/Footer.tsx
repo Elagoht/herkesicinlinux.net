@@ -1,6 +1,7 @@
 import { getAllCategories, getCategoryIcon } from '@/utils/category'
 import { capitalizeTurkish } from '@/utils/turkish'
 import { Github, GraduationCap, Instagram, Linkedin, Mail, Plane, Youtube } from 'lucide-react'
+import Link from 'next/link'
 import React, { FC } from 'react'
 
 const Footer: FC = () => {
@@ -33,7 +34,7 @@ const Footer: FC = () => {
           <h2>İçerikler</h2>
           <ul>
             {getAllCategories().map((category, index) => (
-              <a key={index} href={"/kategori/" + category}><li>{getCategoryIcon(category)} {capitalizeTurkish(category)}</li></a>
+              <Link key={index} href={"/kategori/" + category}><li>{getCategoryIcon(category)} {capitalizeTurkish(category)}</li></Link>
             ))}
           </ul>
         </section>
