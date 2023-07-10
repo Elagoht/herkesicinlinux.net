@@ -6,7 +6,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { CalendarDays } from "lucide-react"
 import { getCategoryIcon } from "@/utils/category"
-import capitalize from "@/utils/capitalization"
+import { capitalizeTurkish } from "@/utils/turkish"
 import Link from "next/link"
 
 type PageProps = {
@@ -37,7 +37,7 @@ const page = async ({ params }: PageProps) => {
           <CalendarDays strokeWidth={1.5} />
         </div>
         <Link id="article-category" href={"/kategori/" + doc.category}>
-          {capitalize(doc.category)}
+          {capitalizeTurkish(doc.category)}
           {getCategoryIcon(doc.category)}
         </Link>
       </div>

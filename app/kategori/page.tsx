@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 
 const page = () => {
-  redirect("/kategoriler")
+  redirect("/makaleler")
 }
 
 export default page

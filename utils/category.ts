@@ -9,7 +9,7 @@ export const getCategoryIcon:
     switch (category) {
       case "rehber": icon = FileText; break
       case "haber": icon = Newspaper; break
-      case "öneri": icon = Sparkles; break
+      case "tavsiye": icon = Sparkles; break
       default: icon = File; break
     }
     return React.createElement(icon, { size, strokeWidth: 1.5 }, "") as FunctionComponentElement<LucideProps>

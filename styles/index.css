@@ -102,7 +102,7 @@
   .blog-info { @apply flex flex-col gap-y-2 }
   .blog-date, .blog-category, .blog-desc { @apply flex gap-1 leading-relaxed }
   .blog-desc { @apply line-clamp-2 }
-  .category-container { @apply flex flex-wrap gap-4 xs:grid-cols-2 }
+  .category-container { @apply flex flex-wrap gap-4 }
   .category-box { @apply card p-2 px-3 w-min flex gap-2 items-center no-underline }
 }
 

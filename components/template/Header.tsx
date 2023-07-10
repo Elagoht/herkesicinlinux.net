@@ -17,8 +17,8 @@ const Header: FC = () => {
       <nav>
         <Link className={pathname.split("/")[1] == "" ? "active" : undefined} href="/"><Home /></Link>
         <Link className="hidden" href="/"></Link>
-        <Link className={pathname.split("/")[1] == "makaleler" ? "active" : undefined} href="/makaleler"><FileText /></Link>
-        <Link className={pathname.split("/")[1] == "makaleler" ? "active" : undefined} href="/makaleler">Makaleler</Link>
+        <Link className={["makaleler", "kategori"].includes(pathname.split("/")[1]) ? "active" : undefined} href="/makaleler"><FileText /></Link>
+        <Link className={["makaleler", "kategori"].includes(pathname.split("/")[1]) ? "active" : undefined} href="/makaleler">Makaleler</Link>
         <Link className={pathname.split("/")[1] == "videoler" ? "active" : undefined} href="/videolar"><Youtube /></Link>
         <Link className={pathname.split("/")[1] == "videoler" ? "active" : undefined} href="/videolar" > Videolar</Link>
         <Link className={pathname.split("/")[1] == "kurslar" ? "active" : undefined} href="/kurslar"><GraduationCap /></Link>

@@ -4,5 +4,6 @@ import haber__makeendeavouros_yayinlandiMdx from './haber__makeendeavouros_yayin
 import rehber__reduxMdx from './rehber__redux.mdx.json' assert { type: 'json' }
 import rehber__sudoMdx from './rehber__sudo.mdx.json' assert { type: 'json' }
 import rehber__tehlikeli_komutlarMdx from './rehber__tehlikeli_komutlar.mdx.json' assert { type: 'json' }
+import tavsiye__ventoyMdx from './tavsiye__ventoy.mdx.json' assert { type: 'json' }
 
-export const allDocs = [haber__makeendeavouros_yayinlandiMdx, rehber__reduxMdx, rehber__sudoMdx, rehber__tehlikeli_komutlarMdx]
+export const allDocs = [haber__makeendeavouros_yayinlandiMdx, rehber__reduxMdx, rehber__sudoMdx, rehber__tehlikeli_komutlarMdx, tavsiye__ventoyMdx]
