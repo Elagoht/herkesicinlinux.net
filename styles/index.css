@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer components {
-  ::-webkit-scrollbar { @apply bg-bronze-700 w-2 h-2 }
+  ::-webkit-scrollbar { @apply bg-bronze-500 w-2 h-2 }
   ::-webkit-scrollbar-thumb { @apply bg-neutral-950 }
   ::selection {
     @apply bg-bronze-500
@@ -20,17 +20,17 @@
   body { @apply bg-neutral-200 dark:bg-neutral-800 flex flex-col min-h-screen }
   header { @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 mx-auto z-10 }
   header > div { 
-    @apply card !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
+    @apply card !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-1 shadow-md
   }
   header div > a { @apply flex gap-2 items-center font-bold text-xl flex-shrink-0 }
   header div > a > div { @apply max-[630px]:hidden flex-shrink }
   header div > a > img { @apply max-xs:hidden }
-  header nav { @apply flex max-xs:justify-center max-xs:flex-1 }
+  header nav { @apply flex max-xs:justify-center max-xs:flex-1 gap-1 py-1 }
   header nav a {
-    @apply h-16 flex justify-center items-center p-2 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:text-bronze-300
+    @apply h-12 flex justify-center items-center px-1 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:bg-bronze-300 hover:bg-opacity-40 dark:hover:bg-bronze-700 dark:hover:bg-opacity-40 rounded-xl
   }
   header nav a.active { 
-    @apply bg-bronze-400 bg-opacity-40 dark:bg-bronze-600 dark:bg-opacity-40
+    @apply bg-bronze-500 bg-opacity-40 dark:bg-bronze-500 dark:bg-opacity-40 text-neutral-950 dark:text-neutral-200
   }
   body > div { @apply max-w-7xl mx-auto max-xs:mb-24 xs:mt-24 }
   main { @apply flex-grow}
@@ -40,12 +40,12 @@
   code { @apply !font-normal }
   pre *, code * { @apply !font-mono }
   aside { @apply md:w-64 flex-shrink-0 sticky top-0 }
-  aside nav > span { @apply text-bronze-600 mb-2 font-bold }
+  aside nav > span { @apply text-bronze-500 mb-2 font-bold }
   aside nav { @apply flex flex-col gap-2 card p-4 }
   aside nav a > div { @apply flex gap-2 items-center }
   #aside-slider { @apply flex flex-col w-64 sticky top-28 max-lg:w-full gap-4 }
   #aside-slider > nav > a> div > span { @apply line-clamp-2 }
-  aside nav a div svg { @apply flex-shrink-0 text-bronze-500 dark:text-bronze-700 }
+  aside nav a div svg { @apply flex-shrink-0 text-bronze-500 }
   #article-info { 
     @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 card
   }
@@ -55,19 +55,32 @@
     @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit
   }
   #article-info svg {
-    @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit text-bronze-500 dark:text-bronze-700
+    @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit text-bronze-500
   }
   .container { @apply flex flex-col gap-4 flex-wrap }
+
   #blog-container { @apply grid gap-4 xs:grid-cols-2 }
   .blog-box { @apply card overflow-hidden p-4 }
   .blog-title { @apply font-bold text-lg line-clamp-1 text-bronze-600}
-  .blog-box svg { @apply shrink-0 text-bronze-500 dark:text-bronze-700 }
+  .blog-box svg { @apply shrink-0 text-bronze-500 }
   .blog-info { @apply flex flex-col gap-y-2 }
   .blog-date, .blog-category, .blog-desc { @apply flex gap-1 leading-relaxed }
   .blog-desc { @apply line-clamp-2 }
+
   .category-container { @apply flex flex-wrap gap-4 }
   .category-box { @apply card p-2 px-3 w-min flex gap-2 items-center no-underline }
-  .category-box svg { @apply text-bronze-500 dark:text-bronze-700 }
+  .category-box svg { @apply text-bronze-500 }
+
+  #course-container { @apply grid gap-4 lg:grid-cols-2 }
+  .course-box { @apply card p-3 flex flex-col gap-2 }
+  .course-box-container { @apply flex gap-2 items-center }
+  .course-description { @apply flex-1 grow }
+  .course-title { @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 }
+  .course-box a { 
+    @apply inline-flex items-center p-2 gap-2 rounded-lg no-underline bg-bronze-500 text-neutral-200 shrink-0 leading-none
+  }
+  .course-box iframe { @apply w-full aspect-video rounded-md }
+
   footer { @apply max-xs:mb-16 flex justify-center }
   #footer-container h1 { @apply font-bold text-xl }
   #footer-container h2 { @apply text-lg font-bold mb-2 }
@@ -75,7 +88,7 @@
   #footer-container { @apply card max-w-7xl w-full p-4 m-4 xs:items-center xs:text-center }
   #footer-container section ul { @apply flex flex-col gap-2 xs:items-center xs:text-center }
   #footer-container section ul a li { @apply flex gap-2 }
-  #footer-container section ul a li svg { @apply flex-shrink-0 text-bronze-500 dark:text-bronze-700 }
+  #footer-container section ul a li svg { @apply flex-shrink-0 text-bronze-500 }
 }
 
 @layer utilities {

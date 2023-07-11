@@ -18,7 +18,7 @@ const AsideNav: FC<AsideProps> = ({ title, links }) => {
     {links.map((link, i) => (
       <Link key={i} href={"/makale/" + link.link}>
         <div>
-          {getCategoryIcon(link.type, 48)}
+          {getCategoryIcon(link.type, 36)}
           <span>{link.name}</span>
         </div>
       </Link>
