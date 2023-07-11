@@ -67,18 +67,23 @@
   .category-container { @apply flex flex-wrap gap-4 }
   .category-box { @apply card p-2 px-3 w-min flex gap-2 items-center no-underline }
   .category-box svg { @apply text-bronze-500 }
+  .active-category { @apply bg-bronze-500 text-bronze-900 }
+  .active-category svg { @apply text-bronze-900 }
 
   #course-container { @apply grid gap-4 lg:grid-cols-2 }
   .course-box { @apply card p-3 flex flex-col gap-2 }
   .course-box-container { @apply flex gap-2 items-center }
   .course-description { @apply flex-1 grow }
   .course-title { @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 }
-  .course-box a { 
-    @apply inline-flex items-center p-2 gap-2 rounded-lg no-underline bg-bronze-500 text-neutral-200 shrink-0 leading-none
-  }
+  .course-box a { @apply inline-flex button }
   .course-box iframe { @apply w-full aspect-video rounded-md }
 
   #project-container { @apply flex flex-col gap-4 }
+  .project-box { @apply card p-3 flex flex-col gap-2 }
+  .project-description { @apply flex-1 grow }
+  .project-title { @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 }
+  .project-box-container { @apply flex gap-2 items-center }
+  .project-box a { @apply button }
   .project-gallery { @apply flex relative items-center aspect-video }
   .project-gallery img { @apply w-[80%] m-0 absolute }
   .project-gallery img:first-child { @apply left-0 top-[5.625%] blur-sm }
@@ -100,5 +105,8 @@
 @layer utilities {
   .card {
     @apply bg-neutral-100 dark:bg-neutral-950 shadow-md rounded-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur
+  }
+  .button {
+    @apply rounded-lg flex items-center p-[.375rem] gap-2 no-underline bg-bronze-500 text-neutral-200 dark:text-neutral-900 shrink-0 leading-none border-2 hover:border-bronze-800 dark:hover:border-bronze-200 border-bronze-500 transition-colors
   }
 }

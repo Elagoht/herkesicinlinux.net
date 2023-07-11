@@ -14,14 +14,14 @@ const Project: FC<IProject> = ({ title, desc, link, stores, images }) => {
     setGallery(newIndex)
   }
 
-  return <div className="course-box">
-    <div className="course-title">{title}</div>
-    <div className="course-description">
+  return <div className="project-box">
+    <div className="project-title">{title}</div>
+    <div className="project-description">
       {desc.map((paragrap, index) => (
         <p key={index}>{paragrap}</p>
       ))}
     </div>
-    <div className="course-box-container">
+    <div className="project-box-container">
       <a target="_blank" rel="noreferrer" href={link}><Code /> Kod</a>
       {stores?.map((store, index) => (
         <a target="_blank" rel="noreferrer" key={index} href={store.link}>

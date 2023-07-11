@@ -12,12 +12,12 @@ const Categories = () => {
   return <>
     <h1 className="text-2xl font-bold">Kategoriler</h1>
     <div className="category-container">
-      <Link href="/makaleler" className={"category-box" + (pathname.split("/")[1] == "makaleler" ? " mt-1 border-b-0" : "")}>
+      <Link href="/makaleler" className={"category-box" + (pathname.split("/")[1] == "makaleler" ? " active-category" : "")}>
         <FilterX strokeWidth={1.5} />
         <div>Tümü</div>
       </Link>
       {getAllCategories().map((category, index) => (
-        <Link href={"/kategori/" + category} className={"category-box" + (pathname.split("/")[2] == category ? " mt-1 border-b-0" : "")}
+        <Link href={"/kategori/" + category} className={"category-box" + (pathname.split("/")[2] == category ? " active-category" : "")}
           key={index}
         >
           {getCategoryIcon(category)}
