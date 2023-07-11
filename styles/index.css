@@ -24,7 +24,7 @@
   header div > a > img { @apply max-xs:hidden }
   header nav { @apply flex max-xs:justify-center max-xs:flex-1 gap-2 py-2 }
   header nav a {
-    @apply h-12 flex justify-center items-center px-1 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:bg-bronze-300 hover:bg-opacity-40 dark:hover:bg-bronze-700 dark:hover:bg-opacity-40 rounded-xl
+    @apply h-12 flex justify-center items-center px-2 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:bg-bronze-300 hover:bg-opacity-40 dark:hover:bg-bronze-700 dark:hover:bg-opacity-40 rounded-xl
   }
   header nav a.active { 
     @apply bg-bronze-500 bg-opacity-40 dark:bg-bronze-500 dark:bg-opacity-40 text-neutral-950 dark:text-neutral-200
