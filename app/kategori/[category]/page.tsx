@@ -1,10 +1,6 @@
 import BlogBox from "@/components/BlogBox"
 import { capitalizeTurkish } from "@/utils/turkish"
-import { getAllFromCategory, getCategoryIcon } from "@/utils/category"
-import { epochToDate } from "@/utils/dates"
-import { Calendar, Edit3 } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { getAllFromCategory } from "@/utils/category"
 import Categories from "@/components/Categories"
 type PageProps = {
   params: {

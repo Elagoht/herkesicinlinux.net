@@ -7,6 +7,9 @@
 @layer components {
   ::-webkit-scrollbar { @apply bg-bronze-700 w-2 h-2 }
   ::-webkit-scrollbar-thumb { @apply bg-neutral-950 }
+  ::selection {
+    @apply bg-bronze-500
+  }
   * {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacityi box-shadow, shadow, transform;
     @apply font-sans duration-300
@@ -68,8 +71,8 @@
   #footer-container h1 { @apply font-bold text-xl }
   #footer-container h2 { @apply text-lg font-bold mb-2 }
   #footer-container p { @apply text-sm first-letter:ml-4 leading-relaxed }
-  #footer-container { @apply card max-w-7xl w-full p-4 m-4 }
-  #footer-container section ul { @apply flex flex-col gap-2 }
+  #footer-container { @apply card max-w-7xl w-full p-4 m-4 items-center text-center }
+  #footer-container section ul { @apply flex flex-col gap-2 items-center text-center }
   #footer-container section ul a li { @apply flex gap-2 }
   #footer-container section ul a li svg { @apply flex-shrink-0 text-bronze-500 dark:text-bronze-700 }
 }
