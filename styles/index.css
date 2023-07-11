@@ -72,8 +72,8 @@
   #footer-container h1 { @apply font-bold text-xl }
   #footer-container h2 { @apply text-lg font-bold mb-2 }
   #footer-container p { @apply text-sm first-letter:ml-4 leading-relaxed }
-  #footer-container { @apply card max-w-7xl w-full p-4 m-4 items-center text-center }
-  #footer-container section ul { @apply flex flex-col gap-2 items-center text-center }
+  #footer-container { @apply card max-w-7xl w-full p-4 m-4 xs:items-center xs:text-center }
+  #footer-container section ul { @apply flex flex-col gap-2 xs:items-center xs:text-center }
   #footer-container section ul a li { @apply flex gap-2 }
   #footer-container section ul a li svg { @apply flex-shrink-0 text-bronze-500 dark:text-bronze-700 }
 }
