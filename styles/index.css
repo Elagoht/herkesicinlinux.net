@@ -17,12 +17,12 @@
   body { @apply bg-neutral-200 dark:bg-neutral-800 flex flex-col min-h-screen }
   header { @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 mx-auto z-10 }
   header > div { 
-    @apply card !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-1 shadow-md
+    @apply card !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
   }
   header div > a { @apply flex gap-2 items-center font-bold text-xl flex-shrink-0 }
   header div > a > div { @apply max-[630px]:hidden flex-shrink }
   header div > a > img { @apply max-xs:hidden }
-  header nav { @apply flex max-xs:justify-center max-xs:flex-1 gap-1 py-1 }
+  header nav { @apply flex max-xs:justify-center max-xs:flex-1 gap-2 py-2 }
   header nav a {
     @apply h-12 flex justify-center items-center px-1 odd:hidden max-xs:even:hidden max-xs:odd:flex flex-1 text-bronze-500 hover:bg-bronze-300 hover:bg-opacity-40 dark:hover:bg-bronze-700 dark:hover:bg-opacity-40 rounded-xl
   }
