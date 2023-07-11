@@ -78,6 +78,15 @@
   }
   .course-box iframe { @apply w-full aspect-video rounded-md }
 
+  #project-container { @apply flex flex-col gap-4 }
+  .project-gallery { @apply flex relative items-center aspect-video }
+  .project-gallery img { @apply w-[80%] m-0 absolute }
+  .project-gallery img:first-child { @apply left-0 top-[5.625%] blur-sm }
+  .project-gallery img:nth-child(2) { @apply right-0 top-[5.625%] blur-sm }
+  .project-gallery img:last-child { @apply w-[90%] left-[5%] top-0 right-[5%] }
+  .project-gallery-controller { @apply absolute w-full h-full flex justify-between items-center }
+  .project-gallery-controller button { @apply w-1/2 p-2 h-full flex items-center last:justify-end text-neutral-200 mix-blend-exclusion }
+
   footer { @apply max-xs:mb-16 flex justify-center }
   #footer-container h1 { @apply font-bold text-xl }
   #footer-container h2 { @apply text-lg font-bold mb-2 }

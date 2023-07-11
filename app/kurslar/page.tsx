@@ -1,5 +1,5 @@
 import Course from '@/components/Course'
-import courses from '@/courses/data'
+import courses from '@/data/courses'
 import { FC } from 'react'
 
 const page: FC = () => {

@@ -9,6 +9,10 @@ module.exports = {
         protocol: 'https',
         hostname: 'yt3.ggpht.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
     ],
   },
   env: {

@@ -1,4 +1,4 @@
-import { ICourse } from '@/courses/data'
+import { ICourse } from '@/data/courses'
 import { BrainCog } from 'lucide-react'
 import { FC } from 'react'
 
