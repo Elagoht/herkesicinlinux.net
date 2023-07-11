@@ -7,12 +7,9 @@
 @layer components {
   ::-webkit-scrollbar { @apply bg-bronze-500 w-2 h-2 }
   ::-webkit-scrollbar-thumb { @apply bg-neutral-950 }
-  ::selection {
-    @apply bg-bronze-500
-  }
   * {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacityi box-shadow, shadow, transform;
-    @apply font-sans duration-300
+    @apply font-sans duration-300 selection:bg-bronze-500 selection:text-white
   }
   html { @apply text-neutral-800 dark:text-neutral-200 }
   article * { @apply scroll-mt-20 }
