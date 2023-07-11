@@ -15,11 +15,12 @@
     @apply font-sans duration-300
   }
   html { @apply text-neutral-800 dark:text-neutral-200 }
-  h1,h2,h3,h4,h5,h6,p,img,a,table { @apply scroll-mt-24 }
-  body { @apply bg-neutral-200 dark:bg-neutral-900 flex flex-col min-h-screen }
+  article * { @apply scroll-mt-20 }
+  h1,h2,h3,h4,h5,h6 { @apply !text-bronze-500 !drop-shadow-md }
+  body { @apply bg-neutral-200 dark:bg-neutral-800 flex flex-col min-h-screen }
   header { @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 mx-auto z-10 }
   header > div { 
-    @apply card max-xs:border-t-4 max-xs:border-b-0 !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
+    @apply card !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
   }
   header div > a { @apply flex gap-2 items-center font-bold text-xl flex-shrink-0 }
   header div > a > div { @apply max-[630px]:hidden flex-shrink }
@@ -79,6 +80,6 @@
 
 @layer utilities {
   .card {
-    @apply bg-neutral-100 border-bronze-400 dark:bg-neutral-950 dark:border-bronze-700 border-b-4 shadow-md rounded-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur
+    @apply bg-neutral-100 dark:bg-neutral-950 shadow-md rounded-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur
   }
 }
