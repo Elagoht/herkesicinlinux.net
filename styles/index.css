@@ -14,12 +14,16 @@
   html { @apply text-neutral-800 dark:text-neutral-200 }
   article * { @apply scroll-mt-20 }
   h1,h2,h3,h4,h5,h6 { @apply !text-bronze-500 !drop-shadow-md }
-  body { @apply bg-neutral-200 dark:bg-neutral-800 flex flex-col min-h-screen }
+  body {
+    @apply bg-neutral-200 dark:bg-neutral-800 flex flex-col min-h-screen
+  }
   header { @apply fixed xs:top-0 max-xs:bottom-0 left-0 right-0 mx-auto z-10 }
   header > div { 
     @apply card !rounded-t-none mx-auto max-w-7xl max-xl:rounded-b-none flex justify-between px-2 shadow-md
   }
-  header div > a { @apply flex gap-2 items-center font-bold text-xl flex-shrink-0 }
+  header div > a {
+    @apply flex gap-2 items-center font-bold text-xl flex-shrink-0
+  }
   header div > a > div { @apply max-[630px]:hidden flex-shrink }
   header div > a > img { @apply max-xs:hidden }
   header nav { @apply flex max-xs:justify-center max-xs:flex-1 gap-2 py-2 }
@@ -46,7 +50,9 @@
   #article-info { 
     @apply flex justify-between items-center gap-2 mb-8 max-sm:flex-col p-4 card
   }
-  #article-author { @apply flex gap-4 items-center font-bold text-xl max-sm:flex-col }
+  #article-author {
+    @apply flex gap-4 items-center font-bold text-xl max-sm:flex-col
+  }
   #article-pp { @apply m-0 card rounded-full border-2 shadow-md }
   #article-category, #article-date {
     @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit
@@ -59,7 +65,9 @@
   
   #pagination-container { @apply flex items-center justify-between gap-2 }
   .page-numbers { @apply flex gap-2  }
-  .page-numbers a { @apply p-2 min-w-[2rem] h-8 flex items-center justify-center button }
+  .page-numbers a {
+    @apply p-2 min-w-[2rem] h-8 flex items-center justify-center button
+  }
   .current-page { @apply !bg-bronze-600 !border-bronze-600 }
 
   #blog-container { @apply grid gap-4 xs:grid-cols-2 }
@@ -69,9 +77,14 @@
   .blog-info { @apply flex flex-col gap-y-2 }
   .blog-date, .blog-category, .blog-desc { @apply flex gap-1 leading-relaxed }
   .blog-desc { @apply line-clamp-2 }
+  .blog-tags { scrollbar-width: none; @apply flex gap-1 overflow-x-scroll }
+  .blog-tags::-webkit-scrollbar { @apply hidden }
+  .blog-tag { @apply button }
 
   .category-container { @apply flex flex-wrap gap-4 }
-  .category-box { @apply card p-2 px-3 w-min flex gap-2 items-center no-underline }
+  .category-box { 
+    @apply card p-2 px-3 w-min flex gap-2 items-center no-underline
+   }
   .category-box svg { @apply text-bronze-500 }
   .active-category { @apply bg-bronze-500 text-bronze-900 }
   .active-category svg { @apply text-bronze-900 }
@@ -80,32 +93,54 @@
   .course-box { @apply card p-3 flex flex-col gap-2 }
   .course-box-container { @apply flex gap-2 items-center }
   .course-description { @apply flex-1 grow }
-  .course-title { @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 }
+  .course-title {
+    @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 
+  }
   .course-box a { @apply inline-flex button }
   .course-box iframe { @apply w-full aspect-video rounded-md }
 
   #project-container { @apply flex flex-col gap-4 }
   .project-box { @apply card p-3 flex flex-col gap-2 }
   .project-description { @apply flex-1 grow }
-  .project-title { @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 }
+  .project-title {
+    @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1
+   }
   .project-box-container { @apply flex gap-2 items-center }
   .project-box a { @apply button }
   .project-gallery { @apply flex relative items-center aspect-video }
   .project-gallery img { @apply w-[80%] m-0 absolute }
-  .project-gallery img:first-child { @apply left-0 top-[5.625%] blur-sm }
-  .project-gallery img:nth-child(2) { @apply right-0 top-[5.625%] blur-sm }
-  .project-gallery img:last-child { @apply w-[90%] left-[5%] top-0 right-[5%] }
-  .project-gallery-controller { @apply absolute w-full h-full flex justify-between items-center }
-  .project-gallery-controller button { @apply w-1/2 p-2 h-full flex items-center last:justify-end text-neutral-200 mix-blend-exclusion }
+  .project-gallery img:first-child {
+    @apply left-0 top-[5.625%] blur-sm
+  }
+  .project-gallery img:nth-child(2) {
+     @apply right-0 top-[5.625%] blur-sm 
+  }
+  .project-gallery img:last-child {
+    @apply w-[90%] left-[5%] top-0 right-[5%]
+  }
+  .project-gallery-controller {
+    @apply absolute w-full h-full flex justify-between items-center
+  }
+  .project-gallery-controller button {
+    @apply w-1/2 p-2 h-full flex items-center last:justify-end text-neutral-200 mix-blend-exclusion
+  }
 
   footer { @apply max-xs:mb-16 flex justify-center }
   #footer-container h1 { @apply font-bold text-xl }
   #footer-container h2 { @apply text-lg font-bold mb-2 }
-  #footer-container p { @apply text-sm first-letter:ml-4 leading-relaxed }
-  #footer-container { @apply card max-w-7xl w-full p-4 m-4 xs:items-center xs:text-center }
-  #footer-container section ul { @apply flex flex-col gap-2 xs:items-center xs:text-center }
+  #footer-container p {
+    @apply text-sm first-letter:ml-4 leading-relaxed
+  }
+  #footer-container {
+    @apply card max-w-7xl w-full p-4 m-4 xs:items-center xs:text-center
+  }
+  #footer-container section ul {
+    @apply flex flex-col gap-2 xs:items-center xs:text-center
+  }
   #footer-container section ul a li { @apply flex gap-2 }
-  #footer-container section ul a li svg { @apply flex-shrink-0 text-bronze-500 }
+  #footer-container section ul a li svg {
+    @apply flex-shrink-0 text-bronze-500
+  }
 }
 
 @layer utilities {
