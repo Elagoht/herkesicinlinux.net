@@ -6,7 +6,7 @@ const Course: FC<ICourse> = ({ title, desc, list, first }) => {
   return <div className="course-box">
     <div className="course-box-container">
       <div className="course-title">{title}</div>
-      <a href={`https://www.youtube.com/watch?v=${first}&list=${list}`}><BrainCog /> Öğren</a>
+      <a target="_blank" rel="noreferrer" href={`https://www.youtube.com/watch?v=${first}&list=${list}`}><BrainCog /> Öğren</a>
     </div>
     <div className="course-description">{desc}</div>
     <iframe
