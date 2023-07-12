@@ -6,19 +6,22 @@ tags: yetkilendirme
 date: 1680908243
 ---
 
+import {Window, Terminal, Output } from "@/components/Terminal"
+
 # Sudo Nedir?
 
 "Super user do" anlamına gelen bu komut, bir komutu bir başka kullanıcı olarak çalıştırmanıza yarar. Aksini belirtmediğiniz sürece işlemler root kullanıcısı tarafından çalıştırılacaktır. Normal bir komut yazıp başına sudo eklemeniz yeterlidir.
-```sh
-whoami
-user
-sudo whoami
-[sudo] password for user: 
-root
-sudo --user otheruser whoami     
-otheruser
-```
-    
+
+<Window>
+  <Terminal>whoami</Terminal>
+  <Output>user</Output>
+  <Terminal>sudo whoami</Terminal>
+  <Output>[sudo] password for user:</Output>
+  <Output>root</Output>
+  <Terminal>sudo --user otheruser whoami</Terminal>
+  <Output>otheruser</Output>
+</Window>
+
 Varsayılan ayar bir kullanıcıyla işlem yaptıktan sonra 5 dakika boyunca bir daha şifre istenmemesi yönündedir. Unutmayın, sudo komutunda o anki aktif kullanıcının şifresi girilir. İşlem yapılacak kullanıcının şifresi değil.
 
 Sudo komutu sistemdeki her kullanıcı olarak işlem yapabilmenizi sağlayabilir. Bu nedenle kimlere sudo komutu kullanım hakkı verileceğine dikkat edilmelidir. Bu izin tek tek kişilere verilebileceği gibi gruplara da verilebilir. İzinler "/etc/sudoers" dosyasında bulunmaktadır. Bu dosyayı düzenlemek için visudo komutunu kullanabilirsiniz. 
@@ -33,21 +36,21 @@ Kendi kullanıcınız ile `groups` komutunu kullandığınızda muhtemelen çokt
 
 Sudo komutundan farklı olarak, bir zaman sınırlaması yoktur. Bir işlem bittiği zaman geri eski kullanıcıya dönmezsiniz. Yeni bir kullanıcı hesabına giriş yapmış olursunuz. Giriş yaparken kendi kullanıcınızın değil, hesabına giriş yapacağınız kullanıcının şifresini girersiniz. Sadece root kullanıcısı bir kullanıcı hesabına girerken şifre girmez.
 
-```sh
-user@pc:~$ su
-Password:
-root@pc:/home/user#
-root@pc:/home/user# su otheruser
-otheruser@pc:/home/user$ su user
-Password:
-user@pc :~$
-```
+<Window>
+  <Terminal>su</Terminal>
+  <Output>Password:</Output>
+  <Terminal prompt="root@pc:/home/user# "></Terminal>
+  <Terminal prompt="root@pc:/home/user# ">su otheruser</Terminal>
+  <Terminal prompt="otheruser@pc:/home/user$ "></Terminal>
+  <Terminal>su user</Terminal>
+  <Output>Password:</Output>
+  <Terminal></Terminal>
+</Window>
 
 Giriş kabuğu olarak geçiş yapmak ve önceki değişikliklerden etkilenmemek için kısa çizgi (-) parametresini kullanabilirsiniz.
-```sh
-user@pc:~$ su -
-Password:
-root@pc:~$ 
-```
-    
-Umarım bu videonun sizlere faydası olmuştur. Bir sonraki videoda görüşmek üzere.
+
+<Window>
+  <Terminal>su -</Terminal>
+  <Output>Password:</Output>
+  <Terminal prompt="root@pc:~$"></Terminal>
+</Window>

@@ -13,10 +13,8 @@ div.output {
   text-neutral-900 bg-neutral-200 selection:bg-neutral-900 selection:text-neutral-200
   dark:text-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-200 dark:selection:text-neutral-900
 }
-
-div.term::before {
-  content: "user@PC:~$ ";
-  @apply text-lime-600 font-bold
+.prompt {
+  @apply text-lime-600 font-bold font-mono select-none
 }
 
 div.locate {
@@ -38,5 +36,5 @@ div.locate::before {
 
 div.window:hover::after {
   content: "Üç kere tıklayarak tüm satırı seçebilirsiniz.";
-  @apply text-neutral-200 bg-neutral-900 absolute mt-1 rounded-lg px-1 bg-opacity-50 backdrop-blur-sm border border-bronze-500
+  @apply text-neutral-200 bg-neutral-900 absolute mt-2 rounded-lg px-1 bg-opacity-80 backdrop-blur-sm
 }
