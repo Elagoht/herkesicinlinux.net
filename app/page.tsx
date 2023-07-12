@@ -1,7 +1,9 @@
+import Image from 'next/image'
 import React from 'react'
 
 const page = () => {
   return <article>
+    <h1>Ana Sayfa</h1>
     <h2>Hakkımızda</h2>
     <p>
       Herkes İçin Linux, Türkiye&#39;de Linux kullanımını artırmak,
@@ -17,7 +19,45 @@ const page = () => {
       geliştirerek bu konuda topluluğa katkuda bulunmaya
       çalışmaktadır.
     </p>
-  </article>
+    <h2>Kullanıcı Kitleleri</h2>
+    <p>
+      Herkes İçin Linux kanalının adını almasını sağlayan en önemli faktör
+      gerçekten herkes için olmasıdır. Bunu da içeriklerine verdiği ve
+      Herkes İçin Linux YouTube kanalında tanıtımı yapılan içerik kitlesi
+      rozetleriyle sağlamaktadır. Üç adet içerik kitlesi rozeti bulunmaktadır:
+    </p>
+    <div className="flex flex-wrap justify-evenly text-center">
+      <figure>
+        <Image src="/assets/mainpage/linuxforeveryone.svg" width={256} height={256} alt="Genel Kullanıcı Kitlesi Amblemi" />
+        <figcaption>Genel Kullanıcı Kitlesi</figcaption>
+      </figure>
+      <figure>
+        <Image src="/assets/mainpage/linuxforsomebody.svg" width={256} height={256} alt="Deneyimli Kullanıcı Kitlesi Amblemi" />
+        <figcaption>Deneyimli Kullanıcı Kitlesi</figcaption>
+      </figure>
+      <figure>
+        <Image src="/assets/mainpage/linuxfornerds.svg" width={256} height={256} alt="Uzman Kullanıcı Kitlesi Amblemi" />
+        <figcaption>Uzman Kullanıcı Kitlesi</figcaption>
+      </figure>
+    </div >
+    <p>
+      <strong>Genel Kullanıcı Kitlesi:</strong> Herkesin anlayabileceği, kolay düzeydeki
+      konuları içerir. Genel bilgiler ve anlatılan komutların giriş düzeyleri bu
+      rozet ile belirtilmektedir.
+    </p><p>
+      <strong>Deneyimli Kullanıcı Kitlesi:</strong> Konu hakkında uzman olmanızı
+      gerektirmeyen ancak daha ileri düzey konuları da barındıran içeriklerde
+      kullanılmaktadır.
+    </p><p>
+      <strong>Uzman Kullanıcı Kitlesi:</strong> Temellere çok iyi hakim ve daha önce
+      anlatılanları kullanmakta oldukça deneyimli, sorunlarını kendi başına çözebilen ve
+      öğrenmeyi öğrenmiş kullanıcılar için yazılmış içerikleri temsil etmektedir.
+    </p>
+    <h2>Kitlelere Göre Video İçerikler</h2>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGIvph8XiC3TQStK2wgGOvNDd6rg7AbLz" title="YouTube video player" allowFullScreen>Tarayıcınız bu içeriği desteklemiyor.</iframe>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGIvph8XiC3TswctNGtDlNRt7nNmRmeI4" title="YouTube video player" allowFullScreen>Tarayıcınız bu içeriği desteklemiyor.</iframe>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLGIvph8XiC3ShOGgT6crsrEUBwgn16czg" title="YouTube video player" allowFullScreen>Tarayıcınız bu içeriği desteklemiyor.</iframe>
+  </article >
 }
 
 export default page

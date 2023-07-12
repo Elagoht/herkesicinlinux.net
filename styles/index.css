@@ -38,6 +38,9 @@
   article {
     @apply prose prose-pre:card dark:prose-pre:!bg-neutral-950 prose-neutral dark:prose-invert grow max-w-none mx-auto
   }
+  article iframe { @apply aspect-video lg:w-2/3 w-full mx-auto my-8 shadow-lg !rounded-xl border-2 border-bronze-500 }
+  article figure { @apply my-4}
+  article figcaption { @apply text-base font-bold }
   code { @apply !font-normal }
   pre *, code * { @apply !font-mono }
   aside { @apply md:w-64 flex-shrink-0 sticky top-0 }
@@ -61,7 +64,6 @@
     @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit text-bronze-500
   }
   .container { @apply flex flex-col gap-4 flex-wrap }
-
   
   #pagination-container { @apply flex items-center justify-between gap-2 }
   .page-numbers { @apply flex gap-2  }
@@ -97,7 +99,7 @@
     @apply flex-1 text-xl font-bold text-bronze-500 line-clamp-1 
   }
   .course-box a { @apply inline-flex button }
-  .course-box iframe { @apply w-full aspect-video rounded-md }
+  .course-box iframe { @apply w-full aspect-video rounded-md m-0 }
 
   #project-container { @apply flex flex-col gap-4 }
   .project-box { @apply card p-3 flex flex-col gap-2 }
