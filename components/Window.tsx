@@ -14,6 +14,11 @@ export const Terminal: FC<TerminalProps> = ({ children, prompt = "user@PC:~$ " }
   </div>
 }
 
+export const Location: FC<ChildrenProp> = ({ children = "user@PC:~$ " }) => {
+
+  return <div className="locate">{children}</div>
+}
+
 
 export const Output: FC<ChildrenProp> = ({ children }) => {
   return (
@@ -23,7 +28,5 @@ export const Output: FC<ChildrenProp> = ({ children }) => {
 
 export const Window: FC<ChildrenProp> = ({ children }: { children: ReactNode }) => {
 
-  return <div className="window">
-    {children}
-  </div>
+  return <div className="window">{children}</div>
 }
