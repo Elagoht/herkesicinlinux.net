@@ -17,5 +17,6 @@ module.exports = {
   },
   env: {
     YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
+    DOCS_PER_PAGE: process.env.DOCS_PER_PAGE
   }
 }

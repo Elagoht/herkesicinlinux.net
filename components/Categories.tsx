@@ -10,7 +10,7 @@ const Categories = () => {
   const pathname = usePathname()
 
   return <>
-    <h1 className="text-2xl font-bold">Kategoriler</h1>
+    <h1>Kategoriler</h1>
     <div className="category-container">
       <Link href="/makaleler" className={"category-box" + (pathname.split("/")[1] == "makaleler" ? " active-category" : "")}>
         <FilterX strokeWidth={1.5} />

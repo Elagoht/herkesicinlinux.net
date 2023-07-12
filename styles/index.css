@@ -56,8 +56,14 @@
   }
   .container { @apply flex flex-col gap-4 flex-wrap }
 
+  
+  #pagination-container { @apply flex items-center justify-between gap-2 }
+  .page-numbers { @apply flex gap-2  }
+  .page-numbers a { @apply p-2 min-w-[2rem] h-8 flex items-center justify-center button }
+  .current-page { @apply !bg-bronze-600 !border-bronze-600 }
+
   #blog-container { @apply grid gap-4 xs:grid-cols-2 }
-  .blog-box { @apply card overflow-hidden p-4 }
+  .blog-box { @apply card overflow-hidden p-4 no-underline }
   .blog-title { @apply font-bold text-lg line-clamp-1 text-bronze-600}
   .blog-box svg { @apply shrink-0 text-bronze-500 }
   .blog-info { @apply flex flex-col gap-y-2 }
