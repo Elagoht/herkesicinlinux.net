@@ -50,7 +50,7 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
         )
     }
     setPageNumbers(pageButtons)
-  }, [page])
+  }, [docs, docsPerPage, page, totalPages])
 
   return <article className="flex flex-col gap-4">
     <Categories />
