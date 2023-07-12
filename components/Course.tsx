@@ -12,7 +12,6 @@ const Course: FC<ICourse> = ({ title, desc, list, first }) => {
     <iframe
       src={`https://www.youtube.com/embed/videoseries?list=${list}`}
       title="YouTube video player" allowFullScreen
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     >
       Tarayıcınız bu içeriği desteklemiyor
     </iframe>
