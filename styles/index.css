@@ -152,4 +152,17 @@
   .button {
     @apply rounded-lg flex items-center p-[.375rem] gap-2 no-underline bg-bronze-500 text-neutral-200 dark:text-neutral-900 shrink-0 leading-none border-2 hover:border-bronze-800 dark:hover:border-bronze-200 border-bronze-500 transition-colors
   }
+  .skeleton {
+    background: linear-gradient(to right, transparent 0%, #af907d55 50%, transparent 100%);
+    background-size: 50%;
+    animation: loading 1s alternate ease-in-out infinite;
+    @apply bg-no-repeat
+  }
+  .placeholder-text {
+    @apply h-6 skeleton w-1/4 rounded-lg border border-bronze-500 border-opacity-50
+  }
+  @keyframes loading {  
+    from { background-position-x: left }
+    to { background-position-x: right }
+  }  
 }

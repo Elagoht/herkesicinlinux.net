@@ -109,7 +109,7 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
     setNumberLinks(tempNumbers)
   }, [searchedDocs.length, page, handlePage, totalPages])
 
-  return <article className="flex flex-col gap-4">
+  return <div className="grow max-w-none mx-auto prose prose-neutral dark:prose-invert flex flex-col gap-4">
 
     <Categories />
 
@@ -130,7 +130,7 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
       <button
         className={page === 1 ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
         onClick={() => page === 1 ? undefined : handlePage(page - 1)}
-      ><ChevronLeft className={""} />
+      ><ChevronLeft />
       </button>
 
       <div className="page-numbers">{numberLinks}</div>
@@ -138,7 +138,7 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
       <button
         className={page === totalPages ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
         onClick={() => page === totalPages ? undefined : handlePage(page + 1)}
-      ><ChevronRight className={""} />
+      ><ChevronRight />
       </button>
     </div>
 
@@ -146,7 +146,7 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
     <BlogList docsToShow={docsToShow} />
 
 
-  </article >
+  </div >
 }
 
 export default BlogBox
