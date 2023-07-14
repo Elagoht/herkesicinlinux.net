@@ -35,3 +35,20 @@ div.window:hover::after {
 div.window a {
   @apply font-mono no-underline
 }
+kbd {
+	border:1px solid #eee;
+	border-bottom:3px #c9c9c9 solid;
+	border-top:1px white solid;
+	background:#ededef;
+	border-radius:.2em;
+	padding:.2em .5em;
+	min-width:20px;
+	display:inline-block;
+	text-align:center;
+	color:black;
+	margin:.5em;
+	box-shadow:0 0 .2em #000a;
+}
+.spacekey {
+	padding:.2em 2em;
+}
