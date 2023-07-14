@@ -1,10 +1,11 @@
 "use client"
 import { Doc } from '@/.contentlayer/generated'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ChevronsRight } from 'lucide-react'
 import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react'
 import Categories from './Categories'
 import BlogList from './template/BlogList'
 import searchForDocs from '@/utils/search'
+import { ChevronsLeft } from 'lucide-react'
 
 type BlogBoxProps = {
   docs: Doc[]
@@ -114,19 +115,33 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
     {/* Pagination */}
     <div>Toplamda {searchedDocs.length} makale listeleniyor. Sayfa {page}/{totalPages}</div>
     <div id="pagination-container">
-      <button
-        className={page === 1 ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
-        onClick={() => page === 1 ? undefined : handlePage(page - 1)}
-      ><ChevronLeft />
-      </button>
+      <div>
+        <button
+          className={page === 1 ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
+          onClick={() => page === 1 ? undefined : handlePage(1)}
+        ><ChevronsLeft />
+        </button>
+        <button
+          className={page === 1 ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
+          onClick={() => page === 1 ? undefined : handlePage(page - 1)}
+        ><ChevronLeft />
+        </button>
+      </div>
 
       <div className="page-numbers">{numberLinks}</div>
 
-      <button
-        className={page === totalPages ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
-        onClick={() => page === totalPages ? undefined : handlePage(page + 1)}
-      ><ChevronRight />
-      </button>
+      <div>
+        <button
+          className={page === totalPages ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
+          onClick={() => page === totalPages ? undefined : handlePage(page + 1)}
+        ><ChevronRight />
+        </button>
+        <button
+          className={page === totalPages ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
+          onClick={() => page === totalPages ? undefined : handlePage(totalPages)}
+        ><ChevronsRight />
+        </button>
+      </div>
     </div>
 
     {/* Blog List */}
