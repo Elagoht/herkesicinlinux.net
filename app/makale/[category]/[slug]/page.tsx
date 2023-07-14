@@ -8,6 +8,7 @@ import { CalendarDays } from "lucide-react"
 import { getCategoryIcon } from "@/utils/category"
 import { capitalizeTurkish } from "@/utils/turkish"
 import Link from "next/link"
+import { FC } from "react"
 
 type PageProps = {
   params: {
@@ -22,7 +23,7 @@ async function getDocFromParams(slug: string) {
   return doc
 }
 
-const page = async ({ params }: PageProps) => {
+const page: FC<PageProps> = async ({ params }) => {
 
   const doc = await getDocFromParams(params.slug)
   return <article>
