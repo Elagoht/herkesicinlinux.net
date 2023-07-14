@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import "@/styles/index.css"
+import "@/styles/article.css"
 import Header from '@/components/template/Header'
 import Main from '@/components/template/Main'
 import Aside from '@/components/template/Aside'

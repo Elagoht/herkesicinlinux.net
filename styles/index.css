@@ -35,9 +35,6 @@
   }
   body > div { @apply max-w-7xl mx-auto max-xs:mb-24 xs:mt-24 }
   main { @apply flex-grow}
-  article {
-    @apply prose prose-pre:card dark:prose-pre:!bg-neutral-950 prose-neutral dark:prose-invert grow max-w-none mx-auto
-  }
   article iframe { @apply aspect-video lg:w-2/3 w-full mx-auto my-8 shadow-lg !rounded-xl border-2 border-bronze-500 }
   article figure { @apply my-4}
   article figcaption { @apply text-base font-bold }
