@@ -7,6 +7,7 @@ const searchForDocs = (docs: Doc[], searchTerm: string): Doc[] => {
 
   return docs.filter((doc) =>
     doc.title.toLocaleLowerCase("tr").includes(searchTerm) ||
+    doc.description.toLocaleLowerCase("tr").includes(searchTerm) ||
     doc.tags.toLocaleLowerCase("tr").includes(searchTerm)
   )
 }
