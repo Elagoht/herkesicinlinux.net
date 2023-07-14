@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react'
 import Categories from './Categories'
 import BlogList from './template/BlogList'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import searchForDocs from '@/utils/search'
 
 type BlogBoxProps = {
@@ -14,33 +13,21 @@ type BlogBoxProps = {
 
 const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
 
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
   const [docsToShow, setDocsToShow] = useState<Doc[]>([])
   const [searchedDocs, setSearchedDocs] = useState<Doc[]>([])
-  const [search, setSearch] = useState<string>(searchParams.get("sorgu") || "")
-  const [page, setPage] = useState<number>(parseInt(searchParams.get("sayfa") || "1"))
+  const [search, setSearch] = useState<string>("")
+  const [page, setPage] = useState<number>(1)
   const [totalPages, setTotalPages] = useState<number>(1)
   const [numberLinks, setNumberLinks] = useState<ReactNode[]>([])
 
-  const handleDestinationURL = useCallback((s: string, p: number): string => {
-    const sorgu = s !== "" ? `sorgu=${s}` : ""
-    const sayfa = p !== 1 ? `sayfa=${p}` : ""
-    return `${pathname}?${[sorgu, sayfa].filter(item => item !== "").join("&")}`
-  }, [pathname])
-
   const handleSearch = useCallback((event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    router.push(handleDestinationURL(search, 1))
     setPage(1)
-  }, [handleDestinationURL, router, setPage, search])
+  }, [setPage])
 
   const handlePage = useCallback((goto: number): void => {
     setPage(goto)
-    router.push(handleDestinationURL(search, goto))
-  }, [handleDestinationURL, router, search])
+  }, [])
 
   useEffect(() => {
     // Press F to search
@@ -67,14 +54,14 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
     const docsPerPage = parseInt(process.env.DOCS_PER_PAGE || "10")
 
     // Search For Docs
-    const searchedDocs = searchForDocs(docs, searchParams.get("sorgu") || "")
+    const searchedDocs = searchForDocs(docs, search)
     const updatedDocsToShow = searchedDocs.slice(
       (page - 1) * docsPerPage,
       page * docsPerPage
     )
     setSearchedDocs(searchedDocs)
     setDocsToShow(updatedDocsToShow)
-  }, [handlePage, page, docs, searchParams, totalPages])
+  }, [handlePage, page, docs, search, totalPages])
 
   useEffect(() => {
     const docsPerPage = parseInt(process.env.DOCS_PER_PAGE || "10")
