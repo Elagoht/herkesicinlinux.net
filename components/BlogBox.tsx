@@ -1,13 +1,11 @@
 "use client"
 import { Doc } from '@/.contentlayer/generated'
-import { capitalizeTurkish } from '@/utils/turkish'
-import { getCategoryIcon } from '@/utils/category'
-import { epochToDate } from '@/utils/dates'
-import { CalendarDays, ChevronLeft, ChevronRight, Tag } from 'lucide-react'
-import Link from 'next/link'
-import { FC, useEffect, useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react'
 import Categories from './Categories'
-import { useSearchParams } from 'next/navigation'
+import BlogList from './template/BlogList'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import searchForDocs from '@/utils/search'
 
 type BlogBoxProps = {
   docs: Doc[]
@@ -16,91 +14,138 @@ type BlogBoxProps = {
 
 const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
 
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const [docsToShow, setDocsToShow] = useState<Doc[]>([])
-  const [pageNumbers, setPageNumbers] = useState<React.JSX.Element[]>([])
+  const [searchedDocs, setSearchedDocs] = useState<Doc[]>([])
+  const [search, setSearch] = useState<string>(searchParams.get("sorgu") || "")
+  const [page, setPage] = useState<number>(parseInt(searchParams.get("sayfa") || "1"))
+  const [totalPages, setTotalPages] = useState<number>(1)
+  const [numberLinks, setNumberLinks] = useState<ReactNode[]>([])
 
-  // Paginate docs
-  const docsCount = docs.length
-  const docsPerPage = parseInt(process.env.DOCS_PER_PAGE as string)
-  const totalPages = Math.ceil(docsCount / docsPerPage)
-  const params = useSearchParams()
-  const page = parseInt(
-    params.get("sayfa") !== null
-      ? params.get("sayfa") as string
-      : "1"
-  )
+  const handleDestinationURL = useCallback((s: string, p: number): string => {
+    const sorgu = s !== "" ? `sorgu=${s}` : ""
+    const sayfa = p !== 1 ? `sayfa=${p}` : ""
+    return `${pathname}?${[sorgu, sayfa].filter(item => item !== "").join("&")}`
+  }, [pathname])
+
+  const handleSearch = useCallback((event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    router.push(handleDestinationURL(search, 1))
+    setPage(1)
+  }, [handleDestinationURL, router, setPage, search])
+
+  const handlePage = useCallback((goto: number): void => {
+    setPage(goto)
+    router.push(handleDestinationURL(search, goto))
+  }, [handleDestinationURL, router, search])
+
   useEffect(() => {
-    setDocsToShow(docs.slice(
-      docsPerPage * (page - 1),
-      docsPerPage * page
-    ))
-
-    // Calculate page number count
-    const pageButtons = []
-    for (let i = -2; i < totalPages + 2; ++i) {
-      if (i >= 0 && i < totalPages)
-        pageButtons.push(
-          <Link
-            className={page === i + 1 ? "current-page" : undefined}
-            key={i}
-            href={{ query: { sayfa: i + 1 } }}
-          >
-            {i + 1}
-          </Link>
-        )
+    // Press F to search
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "f") {
+        const searchBar = document.querySelector("#search-bar") as HTMLElement
+        searchBar.focus()
+      }
     }
-    setPageNumbers(pageButtons)
-  }, [docs, docsPerPage, page, totalPages])
+    document.addEventListener("keypress", handleKeyPress)
+
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress)
+    }
+
+  }, [])
+
+  useEffect(() => {
+    // Redirect if page number is invalid
+    if (!/^[1-9]\d*$/.test(String(page))) {
+      handlePage(1)
+    } else if (page > totalPages) handlePage(1)
+
+    const docsPerPage = parseInt(process.env.DOCS_PER_PAGE || "10")
+
+    // Search For Docs
+    const searchedDocs = searchForDocs(docs, searchParams.get("sorgu") || "")
+    const updatedDocsToShow = searchedDocs.slice(
+      (page - 1) * docsPerPage,
+      page * docsPerPage
+    )
+    setSearchedDocs(searchedDocs)
+    setDocsToShow(updatedDocsToShow)
+  }, [handlePage, page, docs, searchParams, totalPages])
+
+  useEffect(() => {
+    const docsPerPage = parseInt(process.env.DOCS_PER_PAGE || "10")
+    setTotalPages(Math.ceil(searchedDocs.length / docsPerPage))
+
+    const tempNumbers = []
+    for (
+      let i = (
+        page === totalPages
+          ? -4
+          : page <= totalPages - 2
+            ? -2
+            : -3
+      );
+      i <= (page <= 2
+        ? page === 1
+          ? 4
+          : 3
+        : 2
+      );
+      ++i) {
+      tempNumbers.push(
+        page + i > 0 && page + i <= totalPages && <button
+          key={i}
+          className={i === 0 ? "current-number" : undefined}
+          onClick={() => handlePage(page + i)}
+        >
+          {page + i}
+        </button >
+      )
+    }
+    setNumberLinks(tempNumbers)
+  }, [searchedDocs.length, page, handlePage, totalPages])
 
   return <article className="flex flex-col gap-4">
+
     <Categories />
+
     <h1>{title}</h1>
 
+    {/* Search Bar */}
+    <form onSubmit={(event) => handleSearch(event)}>
+      <input
+        type="search" name="sorgu" id="search-bar"
+        placeholder='Makaleleri filtrele ( "F" tuşuna basarak buraya odaklan!)'
+        value={search} onChange={(event) => setSearch(event.currentTarget.value)}
+      />
+    </form>
+
+    {/* Pagination */}
+    <div>Toplamda {searchedDocs.length} makale listeleniyor. Sayfa {page}/{totalPages}</div>
     <div id="pagination-container">
-      <Link
-        className={page === 1 ? "cursor-not-allowed" : undefined}
-        href={page !== 1 ? { query: { sayfa: page - 1 } } : {}}
-      >
-        <ChevronLeft className={page === 1 ? "text-neutral-400" : undefined} />
-      </Link>
+      <button
+        className={page === 1 ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
+        onClick={() => page === 1 ? undefined : handlePage(page - 1)}
+      ><ChevronLeft className={""} />
+      </button>
 
-      <div className="page-numbers">{pageNumbers}</div>
+      <div className="page-numbers">{numberLinks}</div>
 
-      <Link
-        href={page !== totalPages ? { query: { sayfa: page + 1 } } : {}}
-        className={page === totalPages ? "cursor-not-allowed" : undefined}
-      >
-        <ChevronRight className={page === totalPages ? "text-neutral-400" : undefined} />
-      </Link>
+      <button
+        className={page === totalPages ? "cursor-not-allowed text-neutral-400 dark:text-neutral-700" : undefined}
+        onClick={() => page === totalPages ? undefined : handlePage(page + 1)}
+      ><ChevronRight className={""} />
+      </button>
     </div>
 
-    <div id="blog-container">
-      {docsToShow.map((doc, index) => (
-        <Link href={"/makale/" + doc.path} className="blog-box" key={index}>
-          <div className="blog-info">
-            <div className="blog-title">{doc.title}</div>
-            <div className="blog-date">
-              <CalendarDays strokeWidth={1.5} />
-              {epochToDate(doc.date)}
-            </div>
-            <div className="blog-category">
-              {getCategoryIcon(doc.category)}{capitalizeTurkish(doc.category)}
-            </div>
-            <div className="blog-desc">
-              {doc.description}
-            </div>
-            <div className="blog-tags">
-              <Tag className="text-neutral-200 h-8 mr-1" size={24} />
-              {doc.tags.split(", ").map((tag: string) => (
-                <div className="blog-tag" key={tag}>
-                  {tag}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+    {/* Blog List */}
+    <BlogList docsToShow={docsToShow} />
+
+
   </article >
 }
 

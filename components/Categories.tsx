@@ -3,11 +3,12 @@ import { getAllCategories, getCategoryIcon } from '@/utils/category'
 import { capitalizeTurkish } from '@/utils/turkish'
 import { FilterX } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
 
 const Categories = () => {
   const pathname = usePathname()
+  const router = useRouter()
 
   return <>
     <h1>Kategoriler</h1>
@@ -17,14 +18,14 @@ const Categories = () => {
         <div>Tümü</div>
       </Link>
       {getAllCategories().map((category, index) => (
-        <Link href={"/kategori/" + category} className={"category-box" + (pathname.split("/")[2] == category ? " active-category" : "")}
+        <button onClick={() => router.push("/kategori/" + category)} className={"category-box" + (pathname.split("/")[2] == category ? " active-category" : "")}
           key={index}
         >
           {getCategoryIcon(category)}
           <div>
             {capitalizeTurkish(category)}
           </div>
-        </Link>
+        </button>
       ))}
     </div >
   </>
