@@ -97,7 +97,7 @@ const BlogBox: FC<BlogBoxProps> = ({ docs, title }) => {
     setNumberLinks(tempNumbers)
   }, [searchedDocs.length, page, handlePage, totalPages])
 
-  return <div className="grow max-w-none mx-auto prose prose-neutral dark:prose-invert flex flex-col gap-4">
+  return <div className="grow max-w-none mx-auto prose prose-h1:m-0 prose-neutral dark:prose-invert flex flex-col gap-4">
 
     <Categories />
 
