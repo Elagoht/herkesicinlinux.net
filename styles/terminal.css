@@ -2,11 +2,9 @@ div.window {
   box-shadow: 0 .5em .75em -.15em #0008;
   @apply pt-[42px] m-4 p-1 card
 }
-
 div.window::before {
   @apply content-empty bg-metacity dark:invert dark:hue-rotate-180 block absolute w-[5.625rem] mb-[0.1875rem] -mt-[2.3125rem] h-[1.375rem]
 }
-
 div.term,
 div.output {
   @apply break-all p-2 -mt-[.7rem] text-left font-mono leading-5 rounded-lg  text-sm
@@ -16,25 +14,24 @@ div.output {
 .prompt {
   @apply text-lime-600 font-bold font-mono select-none
 }
-
 div.locate {
   @apply font-mono flex m-1 ml-[8.25rem] rounded-lg px-1 mt-4 overflow-auto whitespace-nowrap outline-1 outline-bronze-500 hover:outline
   bg-neutral-300 hover:bg-neutral-200 
   dark:bg-neutral-800 dark:hover:bg-neutral-600
 }
-
 div.locate::after {
   word-spacing: .5rem;
   content: "Dosya Düzen Görünüm Git Araçlar Yardım";
   width: calc(100% - 5rem);
   @apply absolute block font-sans -ml-[8.125rem] pr-3 -mt-[1.375rem] truncate text-xs
 }
-
 div.locate::before {
   @apply content-locate absolute inline-block -ml-[8.6875rem] dark:invert dark:hue-rotate-180 
 }
-
 div.window:hover::after {
   content: "Üç kere tıklayarak tüm satırı seçebilirsiniz.";
   @apply text-neutral-200 bg-neutral-900 absolute mt-2 rounded-lg px-1 bg-opacity-80 backdrop-blur-sm
+}
+div.window a {
+  @apply font-mono no-underline
 }
