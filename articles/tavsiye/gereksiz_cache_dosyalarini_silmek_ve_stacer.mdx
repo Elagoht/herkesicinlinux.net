@@ -1,0 +1,118 @@
+---
+title: Gereksiz Cache Dosyalarını Silmek ve Stacer
+description: Bazen cache dosyaları çok fazla yer kaplayıp can sıkabiliyor. Onları temizlemek aslında çok kolay.
+tags: araç, uygulama
+author: Furkan Baytekin
+date: 1606152531
+---
+
+import {Window, Terminal, Output, Location } from "@/components/Window"
+
+# Gereksiz Cache Dosyalarını Silmek ve Stacer
+
+Stacer, belki de birçoğunuzun bildiği, Windows'daki CCleaner uygulamasının Linux'taki karşılığıdır. Aralarındaki tek fark Stacer'ın gerçekten görevini yerine getirmesidir. Ayrıca Oğuzhan İnan tarafından geliştirildiğini de belirtmek isterim. Kurulum için uygulama mağazanıza göz atabilir ya da aşağıdaki komutları kullanabilirsiniz.
+
+Debian tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo apt install stacer</Terminal>
+  <Terminal>sudo add-apt-repository ppa:oguzhaninan/stacer</Terminal>
+  <Terminal>sudo apt-get update</Terminal>
+</Window>
+
+Arch tabanlı sistemlerde
+
+<Window>
+  <Terminal>[AUR yardımcınız] -S stacer</Terminal>
+</Window>
+
+Fedora tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo dnf install stacer</Terminal>
+</Window>
+
+Stacer uygulamasının nasıl kullanıldığına dair kanalımızdaki videoya da göz atmayı unutmayın!
+
+<iframe src="https://www.youtube-nocookie.com/embed/tGS2j87BQJQ" title="YouTube video player">Tarayıcınız bu içeriği desteklemiyor.</iframe>
+
+## Gereksiz Dosya Olarak Cache Dosyaları
+
+Cache (önbellek) dosyaları, programların daha sonra ihtiyaç duyma potansiyelleri olan bazı verileri kaydettikleri dosyalardır. Spotify en son dinlediğiniz ve indirmediğiniz şarkıları cache olarak saklayabilir. İnternet tarayıcıları internet sayfalarını ve internetten aldıkları bazı dosyaları daha sonra gösterdiğinde yeniden indirmemek i.in cache olarak saklayabilir. Bunlar genelde yeniden ihtiya. duymayacağınız türden cache verileridir. Ancak Thumbnails (küçük resim) dosyaları, mesela bir resim dosyasının, dosya resmi ya da o resmin her zaman en büyük halini yüklememek üzere oluşturulan küçük halleri olabilirler. Bunlar, siz bir resim klasörünü açtığınızda eğer cache dosyası yoksa yeniden oluşturulacaktır. Bu nedenle Thumbnails tarzı cache verilerini silip silmemek size kalmış.
+
+Cache dosyalarının saklandığı dizin şudur:
+
+<Window>
+  <Location>~/.cache</Location>
+</Window>
+
+Şimdi gelelim cache dosyalarını silme işlemine. Ben özellikle Spotify ve Web tarayıcılarının cache verilerini temizlemek istiyorum. Bunun için yazmam gereken komutlar şunlardır. Siz kendi silmek istediklerinizi yazabilirsiniz.
+
+<Window>
+  <Terminal>rm -r $HOME/.cache/spotify</Terminal>
+  <Terminal>rm -r $HOME/.cache/google-chrome</Terminal>
+  <Terminal>rm -r $HOME/.cache/mozilla</Terminal>
+  <Terminal>rm -r $HOME/.cache/BraveSoftware</Terminal>
+  <Terminal>rm -r $HOME/.cache/microsoft-edge-dev</Terminal>
+</Window>
+
+## Gereksiz programların ve kurulum dosyalarının silinmesi
+
+Daha önceden kurduğunuz ve sildiğiniz programların gerekliliklerinin, başka programlar tarafından gerekmemesi durumunda o paketler gereksizdir. Silmenizde sakınca yoktur. Bunun için de
+
+Debian tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo apt autoremove</Terminal>
+  <Terminal>sudo apt autoclean</Terminal>
+  <Terminal>sudo apt clean</Terminal>
+</Window>
+
+Arch tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo pacman -R $(pacman -Qdtq)</Terminal>
+</Window>
+
+Fedora tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo dnf autoremove</Terminal>
+</Window>
+
+## Tüm bu komutları tek bir seferde Çalıştırmak
+
+Bunun için .sh uzantılı bir shell dosyası oluşturabilirsiniz. Yeni bir metin belgesi oluşturun ve adını temizlemek ile ilgili mantıklı bir şey yapıp sonunda ".sh" yazın. İçerisine de yukardaki aşamalarda yazdığınız kodların hepsini alt alta yapıştırın ve dosyayı kaydedin. Aşağıdaki gibi görünmelidirler ancak siz kendi sisteminize uygun kod satırlarını alınız.
+
+```sh
+sudo apt autoclean
+sudo apt autoremove
+sudo apt clean
+sudo pacman -R $(pacman -Qdtq)
+sudo dnf autoremove)
+rm -r $HOME/.cache/opera
+rm -r $HOME/.cache/google-chrome
+rm -r $HOME/.cache/mozilla
+rm -r microsoft-edge-dev
+rm -r $HOME/.cache/spotify
+```
+
+## Çalıştırma ve Test Etme
+
+Aşağıdaki komut ile yazmış olduğunuz dosyaya çalıştırılma isni verin.
+
+<Window>
+  <Terminal>chmod +x /dosyanın/yolu</Terminal>
+</Window>
+
+Kodunuz artık çalışmaya hazır. Şimdi temizlemeden önceki boş alanı kontrol ediyorum.
+
+<img alt="Temizlemen önceki boş alan" src="/uploads/blogs/gereksiz_cache_dosyalarini_silmek_ve_stacer/unfreed.png" />
+
+Şimdi kod dosyasını çalıştırıyorum. Dosyayı nasıl açmak istediğini soran bir ekran gelecektir. Run in Teminal/Uçbirimde çalıştır seçeneğini seçin. Komutlarımızda sudo olduğu için terminal ekranından şifre girmenizi isteyecektir. Şifrenizi girin.
+
+Şimdi de temizlik sonrası boş alanı kontrol ediyorum.
+
+<img alt="temizlik sonrası boş alan" src="/uploads/blogs/gereksiz_cache_dosyalarini_silmek_ve_stacer/freed.png" />
+
+Gördüğünüz üzere ben 1.5 GB alan temizleyebildim. Bunun nedeni çok uzun süredir cache verilerini silmemem ve özellikle Spotify'ın çok fazla cache dosya yazmasıdır. Sizde bu sayı artabilir ya da azalabilir. Bu komut dosyasını bilgisayarınızda yer açmak ve temizlik yapmak istediğiniz her zaman kullanabilirsiniz.

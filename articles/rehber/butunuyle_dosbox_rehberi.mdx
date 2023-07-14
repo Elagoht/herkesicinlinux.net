@@ -1,0 +1,196 @@
+---
+title: Bütünüyle DosBox Rehberi
+description: Dosbox ile oyun oynamak, oyun kısayolları oluşturmak ve konfigürasyon hakkında her şey.
+tags: oyun, dos
+author: Furkan Baytekin
+date: 1581182931
+---
+
+import {Window, Terminal, Output, Location } from "@/components/Window"
+
+# Bütünüyle DosBox Rehberi
+
+## DOSBox kurulumu
+
+DOSBox uygulama mağazanızda yer almaktadır. Oradan indirebilirsiniz ya da aşağıdaki komut ile kurulum sağlayabilirsiniz.
+
+<Window>
+  <Terminal>sudo apt-get install dosbox</Terminal>
+</Window>
+
+## DOSBox Oyun Kurulumu
+
+[http://www.bestoldgames.net/eng/](http://www.bestoldgames.net/eng/) adresi üzerinden DOS oyun romlarını zip olarak indirdikten sonra oyunları arşivden kurmak istediğiniz yere çıkarın. Tavsiyem oyunları aşağıdaki dizine kurmanızdır.
+
+<Window>
+  <Location>~/home/.dosbox/Games</Location>
+</Window>
+
+Oyunları bu konuma atarsanız aşağıda vereceğim komutları düzenlemenize gerek kalmayacaktır. DOSBox'ı bir kere çalıştırdıktan sonra ~/home/.dosbox/ dizininde config dosyası oluşacaktır. Dosyayı verdiğim config dosyası ile değiştirin.
+
+Arşiv şifresi: herkesicinlinux
+
+Config Dosyasını İndir
+
+Ardından dosyayı açın ve aşağıdaki kısımları kendinize göre değiştirin.
+
+<Window>
+  <Output>fullresolution=1920x1080<br />
+windowresolution=1280x720</Output>
+</Window>
+
+Eğer oyunları başka bir dizine kurduysanız aşağıdaki bölümü de kendinize göre değiştirin.
+
+<Window>
+  <Output>mount c ~/.dosbox/DOS -freesize 10000</Output>
+</Window>
+
+Bundan sonra yapmanız gereken her oyun için bu config dosyasını çoğAltmak ve oyunu çalıştırmak içib gerekli kodları yazmak. Gözünüz korkmasın genelde kodlar çok basit olmaktadır ve bilgi gerektirmemektedir. Config dosyasındaki [autoexec] kısmında c diskini mount ettikten ve c diskini açtıktan sonra altına oyunu otomatilk çalışacak diğer kodları yazmalısınız. Blood oyunu için örnek vermek gerekirse:
+
+<Window>
+  <Output>cd blood<br />
+blood.exe</Output>
+</Window>
+
+komutlarını yazmamız gerekmektedir. Yani cd dosyaları açmak için kullanılıyor, blood.exe ise oyunu çalıştırmak için. Ancak dikkat etmeniz gerken bir nokta var. Klasör adları en fazla 8 karakter olmalıdır. Aksi takdirde DOS klasör adınının 7. ve 8. karakterini ~1 olarak deşitirecek ve geri kalanını yazmayacaktır.
+
+Oyunlar için özel config dosyaları oluşturduktan sonra kısayolları oluşturmaya geliyor sıra. Bunun için menu editor'ünüzü açıp New Item butonuna basın. Menu editörü Cinnamon'da aşağıdaki komutla açılabilir.
+
+<Window>
+  <Terminal>cinnamon-menu-editor</Terminal>
+</Window>
+
+<img src="/uploads/blogs/butunuyle_dos_rehberi/menueditor.png" />
+
+Ardından Name, Comment ve simge gibi alanları doldurun. Unutmayın Linux icon dosyası olarak png, jpg, jpeg, svg de dahil olmak üzere tüm resim formalarını kabul etmektedir.
+
+<img src="/uploads/blogs/butunuyle_dos_rehberi/launcheroptions.png" />
+
+window kısmına aşağıdaki kodu düzenleyip yazınız.
+
+<Window>
+  <Output>dosbox -conf /home/[Kullanıcı Adınız]/.dosbox/[Config Dosyasının Adı].conf</Output>
+</Window>
+
+örnek vermek gerekirse:
+
+<Window>
+  <Output>dosbox -conf /home/furkan/.dosbox/blood.conf</Output>
+</Window>
+
+Artık menüden oyunu masaüstüne veya docka ekleyebilirsiniz.
+
+<img src="/uploads/blogs/butunuyle_dos_rehberi/addshortcut.png" />
+
+İşte kısayol ekleme işlemi tamamlandı.
+
+<img src="/uploads/blogs/butunuyle_dos_rehberi/shortcuts.png" />
+
+## İlk Başlatma
+
+Dikkat edin birçok oyun ilk seferde çalışmayacaktır. Size Setup.exe ya da Install.exe dosyasını çalıştırmanızı söyleyecektir. Dosyanın adını yazıp <kbd>Enter</kbd>tuşuna basın ve kurulumu yapın. Kurulum dosyası sizi yönlendirecektir. Kaydetme butonu <kbd>F10</kbd>ise bunu yazacaktır.
+
+<img src="/uploads/blogs/butunuyle_dos_rehberi/blood.png" />
+
+## CD İle çalışan oyunları kurma
+
+Bunu The Elder Scrolls II: Daggerfall üzerinden örnekleyerek anlatacağım. Daggerfall indirdiğiniz zaman içinden ayrıca DFCD klasörü çıkacaktır. Bu klasör dosbox içinde cd olarak mount edilmelidir. Bunun için [autoexec]'in altına yazdığımız kodlar şu şekilde olmalıdır:
+
+<Window>
+  <Output>mount c ~/.dosbox/DOS -freesize 10000<br />
+mount d ~/.dosbox/DOS/DFCD -freesize 10000 -label Daggerfall -t cdrom<br />
+c:<br />
+cd dagger<br />
+dagger.exe</Output>
+</Window>
+
+Yaptığımız şey DFCD klasörünü D harf kodlu CD olarak Daggerfall adıyla mount etmek oldu. Ardından oyunu yine aynı şekilde başlatmış oluyoruz. Ancak bu sefer dikkat etmeniz gereken şey oyunun kurulum dosyasının CD'de olmasıdır.
+
+<Window>
+  <Output>d:</Output>
+</Window>
+
+yazdıktan sonra <kbd>Tab</kbd>tuşuna basarak kurulum dosyasını bulabilir ve kurulumu gerçekleştirebilirsiniz.
+
+<img src="/uploads/blogs/butunuyle_dos_rehberi/daggerfall.png" />
+
+## DOSBox Kısayol Tuş Kombinasyonları
+
+<table>
+	<tbody>
+		<tr>
+			<th>Tuş</th>
+			<th>İşlev</th>
+		</tr>
+		<tr>
+			<td><kbd>Tab</kbd>+<kbd>Enter</kbd></td>
+			<td>Tam ekran/pencere geçişi.</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt</kbd>+<kbd>Pause</kbd></td>
+			<td>Emülatörü durdur.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F1</kbd></td>
+			<td>Tüş düzenleme konfigürasyon ekranını göster.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F4</kbd></td>
+			<td>Takılı sürücüler hakkında önbelleğe alınan bilgileri güncelleyin. DOSBox'ın dışında takılı bir sürücüde bir şey değiştirdiyseniz yararlıdır. Ayrıca IMGMOUNT kullanılarak monte edilen disk görüntüleri arasında geçiş yapar.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F5</kbd></td>
+			<td>Ekran görüntüsü kaydet.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F5</kbd></td>
+			<td>AVI formatlı video kaydını başlat/durdur. NOT: Bununla ilgili bazı sorunlarınız olabilir.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F6</kbd></td>
+			<td>Ses çıkışını bir wav dosyasına kaydetmeyi başlat/durdur.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F7</kbd></td>
+			<td>OPL komutlarının kaydını başlat/durdur.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F8</kbd></td>
+			<td>Ham MIDI komutlarının kaydını başlat / durdur.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F7</kbd></td>
+			<td>çerçeve atlamayı azaltır.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F8</kbd></td>
+			<td>çerçeve atlamayı artırır.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F9</kbd></td>
+			<td>DOSBox'ı kapatır.</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F10</kbd></td>
+			<td>Fareyi yakalayın / bırakın (fareyi DOSBox içinde kullanmanız gerekiyorsa).</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F11</kbd></td>
+			<td>DOSBox cpu döngülerini azalt (Emülasyonu yavaşlatır.).</td>
+		</tr>
+		<tr>
+			<td><kbd>Ctrl</kbd>+<kbd>F12</kbd></td>
+			<td>DOSBox cpu döngülerini artır (Emülasyonu hızlandırır.).</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt</kbd>+<kbd>F12</kbd></td>
+			<td>Hız kilidini açma (turbo düğmesi).</td>
+		</tr>
+	</tbody>
+</table>
+
+---
+
+# Referanslar:
+
+* [https://www.dosbox.com/wiki/Special_Keys](https://www.dosbox.com/wiki/Special_Keys)

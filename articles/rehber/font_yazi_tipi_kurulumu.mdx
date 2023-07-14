@@ -1,0 +1,83 @@
+---
+title: Font (Yazı Tipi) Kurulumu
+description: Aslında çok da zor bir şey değil.
+tags: font, kişiselleştirme
+author: Furkan Baytekin
+date: 1597426131
+---
+
+import {Window, Terminal, Location } from "@/components/Window"
+
+# Font (Yazı Tipi) Kurulumu
+
+Linux kurulumu yaptıktan sonra yapmanız gereken belli başlı şeyler vardır. Bunlardan biri de özellikle office ve web alanında kullanacağınız fontları (yazı tiplerini) yüklemektir. Microsoft fontları her zaman gerekmektedirler. Onları yükleyerek başlayalım. Bunun için iki yolu takip etmenizi öneririm. Birincisi aşağıdaki komutları terminalde çalıştırmak.
+
+Ubuntu tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo apt install ttf-mscorefonts-installer</Terminal>
+</Window>
+
+Arch tabanlı sistemlerde
+
+<Window>
+  <Terminal>[AUR yardımcınız] -S ttf-ms-win10</Terminal>
+</Window>
+
+Fedora tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo dnf install curl cabextract xorg-x11-font-utils fontconfig</Terminal>
+
+  <Terminal>sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm</Terminal>
+</Window>
+
+karşınıza çıkacak olan EULA'yı kabul etmek için <kbd>Tab</kbd> tuşuna basıp <kbd>Enter</kbd> tuşuna basın.
+
+İkinci yol ise font dosyalarını internetten indirip elle kurmaktır. Bu şekilde istediğiniz bütün ttf uzantılı dosyları kurabilirsiniz. Ttf dosyaları evrensel font dosyalarıdır.
+
+## Font Yükleyici Uygulama Methodu
+
+Açmak için çeşitli programlar kullanılabilir. Gnome Font Viewer uygulaması bu işi başarılı bir şekilde yapmaktadır. Uygulama mağazanızdan indirebilirsiniz ya da aşağıdaki komutlar ile yükleyebilirsiniz.
+
+Ubuntu tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo apt install gnome-font-viewer</Terminal>
+</Window>
+
+Arch tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo pacman -S gnome-font-viewer</Terminal>
+</Window>
+
+Fedora tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo dnf install gnome-font-viewer</Terminal>
+</Window>
+
+Ardından arşivden çıkardığınız dosyaları açın.
+
+<img src="/uploads/blogs/font_yazi_tipi_kurulumu/noninstalled.png" />
+
+Bu kısımda yek yapmanız gereken Yükle/Install butonuna basıp birkaç saniye beklemek.
+
+<img src="/uploads/blogs/font_yazi_tipi_kurulumu/installed.png" />
+
+Yükle/Install butonu deaktif olduktan sonra dosyayı kapatabilirsiniz.
+
+## Sürükle Bırak Methodu
+
+Aşağıda belirttiğim dizinlere arşivden çıkardığınız dosyaları sürüklemek fontların kurulmasını sağlayacaktır.
+
+<Window>
+  <Location>~/.local/share/fonts</Location>
+</Window>
+
+Tüm kullanıcılar için kurmak istiyorsanız aşağıdaki dizini tercih edin (kök erişimi gerektirir.).
+
+<Window>
+  <Location>/usr/share/fonts</Location>
+</Window>

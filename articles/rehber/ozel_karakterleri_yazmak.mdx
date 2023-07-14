@@ -1,0 +1,99 @@
+---
+title: Özel Karakterleri Yazmak
+description: Makale veya ödev yazılarını yazarken bazen şapkalı ya da daha farklı karakterleri yazmak gerekebiliyor. İşte nasıl yazacağınız!
+tags: araç, uygulama, klavye
+author: Furkan Baytekin
+date: 1589304531
+---
+
+import {Window, Terminal, Output } from "@/components/Window";
+
+# Özel Karakterleri Yazmak
+
+## Kısa Yol Tuşları
+
+### <kbd>Alt Gr</kbd> Tuşu ile Yazılan Karakterler
+
+&quot;@, #, $, &gt;, $, &frac12;, &frac34;, &#123;, &#91;, \, |, ₺&quot; gibi karakterlerden bahsetmiyorum. Makalelerinizi, &ouml;devlerinizi ya da mesajlarınızı yazarken sıklıkla (!) kullandığınız &quot;&Acirc;, &acirc;, &Icirc;, &icirc;, &Ocirc;, &ocirc;, &Ucirc;, &ucirc;&quot; karakterlerini yazmak için <kbd>Alt Gr</kbd> tuşunu kullanabilirsiniz. &Ecirc;, &ecirc; karakteri &euro; karakteri ile çakıştığı için bu metotla yazamıyoruz.
+
+<table>
+	<tbody>
+		<tr>
+			<th>Tuş Kombinasyonu</th>
+			<th>Yazılan Karakter</th>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>A</kbd></td>
+			<td>&acirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd></td>
+			<td>&Acirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>O</kbd></td>
+			<td>&ocirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd></td>
+			<td>&Ocirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>I</kbd></td>
+			<td>&icirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd></td>
+			<td>&Icirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>U</kbd></td>
+			<td>&ucirc;</td>
+		</tr>
+		<tr>
+			<td><kbd>Alt Gr</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd></td>
+			<td>&Ucirc;</td>
+		</tr>
+	</tbody>
+</table>
+
+## <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> ile Yazılan Karakterler
+
+&Ecirc; ve &ecirc; karakterlerini, diğer t&uuml;m karakterleri yazmak için bu tuş kombinasyonunu kullanabilirsiniz. T&uuml;m karakterleri dememin sebebi bu kombinsayondaki <kbd>U</kbd> tuşunun Unicode'dan gelmesi. Yazacağınız karakterin Unicode'unu yazarak o karakteri yazabilirsiniz. Kullanım şekli şu şekildedir:
+
+1. <kbd>Ctrl</kbd> ve <kbd>Shift</kbd> tuşlarına Unicode'u yazdığınız s&uuml;rece basılı tutun.
+2. <kbd>U</kbd> tuşuna bir kere basarak Unidoce gireceğinizi belirtin.
+3. Artık Unicode'u girmeye başlayın ve 1. adımı unutmayın!
+4. &Ouml;rneğin Unicode'u &quot;U00EA&quot; olan &quot;&ecirc;&quot; karakteri için baştaki sıfırları yazmama gerek olmadan ve başta U'ya bastığım için onu atlayarak <kbd>E</kbd>+<kbd>A</kbd> tuşlarına basarak diğer tuşlardan parmaklarımı kaldırıyorum.
+
+Bu adımları takip edersem &quot;&ecirc;&quot; karakteri yazılacaktır. &quot;&Ecirc;&quot; karakterinin Unicode'u ise &quot;U+00CA&quot;dır.
+
+Unicode'ları internette kısa bir arama yaparak bulabilirsiniz. Not: Her yazı alanında çalışmayabilir! Başka bir yere yazıp oradan kopyalayabilirsiniz.
+
+## Karakter Eşlem
+
+İstediğiniz karakterleri bulmanın ve yazmanın en kesin yolu ise Karakter Eşlem/Character Map uygulamasıdır. Uygulamalarınız arasında bulamazsanız aşağıdaki ile y&uuml;kleyebilirsiniz.
+
+Debian tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo apt install gucharmap</Terminal>
+</Window>
+
+Arch tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo pacman -S gucharmap</Terminal>
+</Window>
+
+Fedora tabanlı sistemlerde
+
+<Window>
+  <Terminal>sudo dnf install gucharmap.x86_64</Terminal>
+</Window>
+
+Bu uygulama ile istediğiniz karakteri bulabilir, kopyalayabilir ve Unicode dahil olmak &uuml;zere hakkında birçok ayrıntıya ulaşabilirsiniz.
+
+<img alt="Karakter Eşlem Uygulaması" src="/uploads/blogs/ozel_karakterleri_yazmak/charactermap.png" />
+
+Karakter Eşlem Uygulaması

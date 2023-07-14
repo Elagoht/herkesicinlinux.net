@@ -1,6 +1,6 @@
 ---
 title: Su ve Sudo Arasındaki Farklar
-description: Su ve sudo kullanırken farklılıklarını göz önünde bulundurarak hangisini kullanacağınıza karar verin.
+description: Su ve sudo'nun farklılıklarını göz önünde bulundurarak hangisini kullanacağınıza karar verin.
 author: Furkan Baytekin
 tags: yetkilendirme
 date: 1680908243
@@ -8,7 +8,9 @@ date: 1680908243
 
 import {Window, Terminal, Output } from "@/components/Window"
 
-# Sudo Nedir?
+# Su ve Sudo Arasındaki Farklar
+
+## Sudo Nedir?
 
 "Super user do" anlamına gelen bu komut, bir komutu bir başka kullanıcı olarak çalıştırmanıza yarar. Aksini belirtmediğiniz sürece işlemler root kullanıcısı tarafından çalıştırılacaktır. Normal bir komut yazıp başına sudo eklemeniz yeterlidir.
 
@@ -30,7 +32,7 @@ Son kullanıcıya hazır sunulan birçok sistemde root kullanıcısı ve wheel g
 
 Kendi kullanıcınız ile `groups` komutunu kullandığınızda muhtemelen çoktan "wheel" grubunda olduğunuzu göreceksiniz. Zaten bu sayede kök yetkileri ile bir işlem gerçekleştirebilmektesiniz. 
 
-# Su nedir?
+## Su nedir?
 
 "Switch user" anlamına gelmektedir ve belirtilen kullanıcı olarak bir kabuk programı başlatmanızı sağlar. Aksi belirtilmedikçe geçilecek kullanıcının kabuk programı başlatılır. Yani konsol üzerinde başka bir kullanıcıya giriş yapmış olursunuz. Bu kabuk programını kapattığınızda (kullanıcıdan çıkış yaptığınızda) kendi kabuk programınıza geri dönersiniz. Varsayılan olarak root kullanıcısına giriş yapılır.
 
@@ -39,7 +41,7 @@ Sudo komutundan farklı olarak, bir zaman sınırlaması yoktur. Bir işlem bitt
 <Window>
   <Terminal>su</Terminal>
   <Output>Password:</Output>
-  <Terminal prompt="root@pc:/home/user# "></Terminal>
+  <Terminal prompt="root@pc:/home/user## "></Terminal>
   <Terminal prompt="root@pc:/home/user# ">su otheruser</Terminal>
   <Terminal prompt="otheruser@pc:/home/user$ "></Terminal>
   <Terminal>su user</Terminal>

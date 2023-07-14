@@ -1,0 +1,48 @@
+---
+title: Herkes İçin Linux Websitesi Yayında!
+description: Bir an hiç çıkmayacak sandım. Okuyunca anlarsınız.
+tags: hil
+author: Furkan Baytekin
+date: 1689443602
+---
+
+# Herkes İçin Linux Websitesi Yayında!
+
+2020 yılından beri üzerinde uğraştığım bir proje idi. Başladığım tarihte henüz ortada Youtube kanalı bile yoktu. Bildiklerimi, gördüklerimi, deneyimlediklirimi paylaşmak için yazı yazacaktım. Bunun için üç günde PHP öğrenip MySQL ile bir site yazdım. Bugün [https://elagoht.github.io/BlackBlog/](https://elagoht.github.io/BlackBlog/) adresinde sergilenen site (Altındaki tarihte 2021 yazabilir, onu sonradan değiştirmiştim.) PHP ile yazdığım koddan ayırarak elde edilen bir HTML, CSS sayfası.
+
+```php
+<?php
+  echo nl2br("Herkes İçin Linux olduğunu bile bilmiyordu \n Hello World dedi ama dediği ile kaldı.");
+?>
+```
+
+Aradan yıllar geçti. Aynı siteyi bu sefer Django ile yeniden yazdım. Tasarım birebir aynıydı. Ancak geliştirme aşamasında kaldı. Bu site yayınlanırken var olan ve eski tarihli yazıların birçoğu da hâlâ o projenin kaynak kodlarında mevcut.
+
+```django
+{% block django %} Aslında çalışıyordu, yayınlanabilirdi ancak AWS ile başarısız deneyimlerim oldu. {% endblock %}
+```
+
+Yine aradan bir yıl kadar geçtikten sonra Aynı siteyi bu sever React.js ile yeniden yazdım. Ancak backend bilgim yeterli olmadığı için o projenin sadece bir arayüzü vardı. Yarıda kaldı.
+
+```jsx
+const React = () => {
+  return <article>
+    Front End'i güzeldi (Çünkü ben yaptım.) ama Back End yoktu (Çünkü ben yapmadım.)...
+  </article>
+  )
+}
+```
+
+Şimdi ise karşınızda Next.js ile geliştirdiğim ve MarkDownX formatı ile güçlendirdiğim bu websitesi var! Tasarımda oldukça farklı bir tarz izledim. Bu sefer kod bloklarında otomatik sözdizimi renkendirme özelliği de bulunuyor. Zaten fark etmişsinizdir. Ayrıca site otomatik olarak sizin cihazınızdaki aktif temaya (açık/koyu) uyum sağlıyor.
+
+```tsx
+const NextJS:FC<NextJSProps> = ({children}) => {
+  return <article>
+    Bu sefer tamamını kendim yapıp yayınlamayı başardım.
+    {children}
+  </article>
+  )
+}
+```
+
+Buradan da yazılarımı paylaşmaya devam edeceğim. Github üzerinden paylaştığım yazılar da artık burada olacak. Umarım siteyi beğenirsiniz. Geri bildirimlerinize her zaman açığım. Benimle iletişime geçmekten çekinmeyin.

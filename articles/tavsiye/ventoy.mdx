@@ -6,13 +6,17 @@ tags: araç, iso
 date: 1685908254
 ---
 
-# Ventoy Bizlere Ne Sağlar?
+import {Window, Terminal, Output } from "@/components/Window"
+
+# Tek USB, Çoklu Medya!
+
+## Ventoy Bizlere Ne Sağlar?
 
 Normal şartlarda bir belleği başlatılabilir disk yapmak istediğinizde gerekli alan kadar bölümler oluşturulur ve geri kalan depolama alanını kullanamazsınız. Bir diskte birden fazla başlatılabilir kurulum dosyası bulunduramazsınız. Yapmanın yolları elbette vardır. Ancak hiçbiri Ventoy kadar kullanışlı ve kolay değildir.
 
 Ventoy, diskiniz için bir başlatıcıdır. Doğrudan Ventoy kurulu diski başlatır ve ardından Ventoy GRUB menüsünden istediğiniz ISO dosyasını seçerek başlatabilirsiniz. Sadece başlatma diskleri de değil. Kişisel dosyalarınızı da bu diskte saklamanız mümkün.
 
-# Ventoy Nasıl Çalışır?
+## Ventoy Nasıl Çalışır?
 
 Ventoy kurulu bir disk, iki parçaya bölünür. Birincisi başlatılabilir disk, ikincisi depolama alanı olarak ayarlanır. Bir başlatma diski olarak kullanmak zorunda değilsiniz. Depolama alanına istediğiniz dosyalarınızı da kopyalayabilirsiniz. Zaten bir işletim sisteminin de yalnızca ISO dosyasını depolama alanına kopyalayarak başlatılabilir menüde görünmesini sağlayabilirsiniz. Bu sayede Windows kurulum diski hazırlamak da oldukça kolay olmaktadır.
 
@@ -20,26 +24,22 @@ Ventoy diski başlatıldığında bu şekilde görünmelidir.
 
 Ventoy GRUB kullandığı için GRUB temaları kurmak da mümkündür. 
 
-# Ventoy Nasıl Kurulur?
+## Ventoy Nasıl Kurulur?
 
 Ventoy, kendisini kurmaya yarayan bir uygulama ile bir diske kurulabilir. Bu uygulamayı belirtilen şekilde kurabilirsiniz.
 
 Debian ve Fedora tabanlı sistemlerde:
 
-https://github.com/ventoy/Ventoy/releases adresinden ".tar.gz" uzantılı dosyayı indirin. Arşivi ayıklayın. Sisteminiz için uygun dosyayı başlatın.
+[https://github.com/ventoy/Ventoy/releases](https://github.com/ventoy/Ventoy/releases) adresinden ".tar.gz" uzantılı dosyayı indirin. Arşivi ayıklayın. Sisteminiz için uygun dosyayı başlatın.
 
 Arch tabanlı sistemlerde
 
-<div className="window">
-  <div className="term">
-    [AUR yardımcınız] -S ventoy
-  </div>
-</div>
+<Window>
+  <Terminal>[AUR yardımcınız] -S ventoy</Terminal>
+</Window>
 
 Kurulum uygulamasını yükledikten sonra diskimizi hazırlamaya başlayalım.
 
 Belirtilen şekilde kurulumu gerçekleştirebilirsiniz. Dosyalarınızın tamamının silineceğine dair bir uyarı bulunmaktadır. Bunu iki kere onaylamanızı istemektedir. Ardından kurulum gerçekleşecektir. İstediğiniz ISO ve dosyalarınızı oluşturulan disk bölümüne taşıyabilirsiniz.
 
 Ventoy sayesinde diskinizin alanını tam verimlilikle kullanabilir ve birden fazla işletim sistemi imajını tek diskte taşıyabilirsiniz.
-
-Umarım bu video sizlere faydalı olmuştur. Bir sonraki videoda görüşme üzere...

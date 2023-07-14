@@ -1,6 +1,6 @@
 ---
 title: Çalıştırılmaması Gereken Komutlar
-description: Çalıştırılması tehlikeli olan komutlar burada listelendi.
+description: Aman diyim burada gördüğünüz komutları çalıştırmayın. Sonrasına ben karışmam.
 author: Furkan Baytekin
 tags: komut, terminal, tehlike
 date: 1686908243
@@ -55,12 +55,12 @@ Bu komut ile bir dosya sistemi oluşturduğunuzda belirtilen diskte ya da disk b
 Standart çıktı ve hata dosyaları 1 ve 2 numaralı dosyalardır. büyüktür işareti ise yönlendirme işlemine yarar. Başına 1 yazılması gerekmeksizin çıktıyı, 2 yazılması durumunda hata çıktılarını belirtilen dosyaya yönlendirir.
 
 ```sh
-XXX XXX -XXX "XXX" > /dev/sda"
-XXX XXX -XXX "XXX" 1> /dev/sda2"
-XXX XXX -XXX "XXX" 2> /dev/nvme0n1"
-XXX XXX -XXX "XXX" >> /dev/nvme0n2p3"
-XXX XXX -XXX "XXX" 1>> /media/USB"
-XXX XXX -XXX "XXX" 2>> /mnt/HDD"
+[herhangi bir komut] > /dev/sda
+[herhangi bir komut] 1> /dev/sda2
+[herhangi bir komut] 2> /dev/nvme0n1
+[herhangi bir komut] >> /dev/nvme0n2p3
+[herhangi bir komut] 1>> /media/USB
+[herhangi bir komut] 2>> /mnt/HDD
 ```
 
 Belirtilen gösterimde yönlendirme karakterlerinden önce ne geldiği hiç önemli değildir. Burada asıl önemli olan çıktıların ne olduğudur. Çıktı sıradan bir metin dosyası olduğu sürece sıkıntı yoktur. Ancak örneklerde verilen dizinler bir disk ya da disk bölümünü göstermektedir. Sıradan bir komut çıktısı ile tüm diski değiştirmek demek dosyalarınızın kaybına neden olmak anlamına gelmektedir. İleri düzey dosya bir kurtarma yönetmi ile dosyalar garanti olmaksızın kurtarılabilir.

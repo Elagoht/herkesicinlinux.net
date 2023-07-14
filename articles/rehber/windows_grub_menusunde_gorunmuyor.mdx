@@ -3,49 +3,53 @@ title: Windows Grub Menüsünde Görünmüyor
 description: GRUB menünüzü güncellemeyi denediniz mi? Nasıl yapılacağını mı bilmiyor?
 author: Furkan Baytekin
 tags: windows, grub
-date: 1689018117
+date: 1651687899
 ---
 
-# Sorunun Nedeni
+import {Window, Terminal, Output } from "@/components/Window"
+
+# Windows Grub Menüsünde Görünmüyor
+
+## Sorunun Nedeni
 
 GRUB menüsü, öntanımlı girdileri listeler. Windows Boot Manager tanıtılmadığı için listelenmemektedir. Windows'u hiç tanıtmamış olabilirsiniz. Ya da bilmeden silmiş olabilirsiniz. çözüm oldukça kolay.
 
-# Sorunun çözümü
+## Sorunun çözümü
 
-## Kurulu İşletim Sistemlerini Otomatik Olarak Taratın
+### Kurulu İşletim Sistemlerini Otomatik Olarak Taratın
 
 Bu işlemi os-prober adını verdiğimiz araçla yapacağız. Birçok linux dağıtımında **os-prober halihazırda yüklü** gelmektedir. **Arch gibi temel bir dağıtım kullanıyorsanız** aşağıdaki komutla yükleyebilirsiniz:
 
-<div className="window">
-  <div className="term">sudo pacman -S os-prober</div>
-</div>
+<Window>
+  <Terminal>sudo pacman -S os-prober</Terminal>
+</Window>
 
 Ardından düzenlemeniz gereken bir dosya var. GRUB güncelleyicinin os-prober kullanmasını sağlamak için bu düzenleme gereklidir. Bu komut ile gerekli değişikliği gerçekleştirebilirsiniz:
 
-<div className="window">
-  <div className="term">sudo sed -i 's/#GRUB_DISABLE_OS_PROBER.*/GRUB_DISABLE_OS_PROBER="false"/' /etc/default/grub</div>
-</div>
+<Window>
+  <Terminal>sudo sed -i 's/#GRUB_DISABLE_OS_PROBER.*/GRUB_DISABLE_OS_PROBER="false"/' /etc/default/grub</Terminal>
+</Window>
 
-## GRUB Güncelleme
+### GRUB Güncelleme
 
 Debian tabanlı sistemlerde
 
-<div className="window">
-  <div className="term">sudo grub-update</div>
-</div>
+<Window>
+  <Terminal>sudo grub-update</Terminal>
+</Window>
 
 Arch tabanlı sistemlerde
 
-<div className="window">
-  <div className="term">sudo grub-mkconfig -o /boot/grub/grub.cfg</div>
-</div>
+<Window>
+  <Terminal>sudo grub-mkconfig -o /boot/grub/grub.cfg</Terminal>
+</Window>
 
 Fedora tabanlı sistemlerde
 
-<div className="window">
-  <div className="term">grub2-mkconfig -o /boot/grub2/grub.cfg</div>
-</div>
+<Window>
+  <Terminal>sudo grub2-mkconfig -o /boot/grub2/grub.cfg</Terminal>
+</Window>
 
-## Sonuç
+### Sonuç
 
 Artık bilgisayarınızı yeniden başlatıp Windows dahil olmak üzere sisteminizde kurulu diğer işletim sistemlerini de GRUB menünüzde görebilirsiniz!

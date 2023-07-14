@@ -1,0 +1,33 @@
+---
+title: SCP ile Makineler Arası Dosya Aktarımı
+description: Makineler arasında güvenli dosya aktarımı için de SSH protokolünü kullanabileceğinizi biliyor muydunuz?
+tags: terminal, ssh, remote
+author: Furkan Baytekin
+date: 1663608531
+---
+
+import {Window, Terminal, Output } from "@/components/Window"
+
+# SCP ile Makineler Arası Dosya Aktarımı
+
+## Secure Copy
+
+Secure Contain Protect anlamına gelmeyen "secure copy" komutu, **ssh protokolünü kullanarak**, **makineler arası kopyalama** işlemi gerçekleştirmektedir. Böylece uzaktaki makinelerden dosya kopyalamak ya da onlara dosya göndermek mümkün hale gelmektedir. **Sunucu yöneticilerinin işine fazlasıyla yaramaktadır**.
+
+Sadece sunucular ya da uzaktaki makineler için de değil, elinizin altındaki iki makine arasında dosya aktarımı yaparken de oldukça faydalı olacaktır. **Normalde** bir dosyayı bir başka bilgisayara taşımak için onu **önce bir aracı diske taşır** sonra **o diskten istediğiniz makineye taşırsınız**. Bu bir flash bellek olabileceği gibi bulut deposu da olabilir.
+
+Fiziksel cihazlarla taşırken sınırlayıcınız cihazlarınızdır. **Yazma ve okuma hızları sizi sınırlar**. Flash bellek düşük hızlara sahipse bu sizi epey yavaşlatacaktır. Bulut depoya aktarmada ise** karşıya yükleme ve indirme hızlarınız sizi sınırlandıracak**tır. Karşıya yükleme hızlarının genel olarak düşük tutulduğu hizmetlerde bu da sizi epey yavaşlatacaktır. Ayrıca **bu iki yöntemde** de **kopyalama işlemini iki kere yapmaktasınız**.
+
+**Secure Copy sayesinde** dosyaları aracı bir disk olmadan **doğrudan kopyalayabilirsiniz**. Uzaktaki bir makineye internet ile bağlanırken karşıya yükleme sizi yine sınırlandıracaktır. Ancak yerel bir bağlantıda modeminiz üzerinden gerçekleşen bu bağlantı, internetinizin olup olmadığına bakmayacağı için karşıya yükleme ve indirme hızı sınırı gibi kavramlar olmayacaktır. **Modeminizin veri transfer hızı ile sınırlanacaksınız**. Elimdeki **2016 model modem bile 300 Mbps** hız verebildiğine göre muhtemelen hız konusunda sıkıntı çekmeyeceğim. Burada sınır makinelerin yazma hızı olacaktır.
+
+## SCP İşlemi Nasıl Gerçekleştirilir?
+
+Sitede yer alan SSH bağlantısı makalesinde anlatılan hizmetler başlatıldıktan ve protokol ile cihazlar tanıtıldıktan sonra `scp` komutuyla istediğiniz cihazdaki dilediğiniz dosyayı, arzuladığınız yere kopyalayabilirsiniz. Kullanım bakımından komutun normal kopyalama komutundan tek farkı dosya yolu gösterimidir. Diğer cihazdaki bir yolu gösterirken `ssh` bağlantısında olduğu gibi **kullanıcı adı, kuyruklu a (@), cihazın IP adresi** gibi verileri girdikten sonra **iki nokta (:) koyarak o cihazdaki bir yol**u gösterebilirsiniz. Bir komut örneğine göz atalım.
+
+<Window>
+<Terminal>scp user@192.168.1.106:Downloads/program.pdf Documents</Terminal>
+<Output>user@192.168.1.106&#39;s password<br />
+program.pdf&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100% 1.2MB 4.2MB/s 00:00</Output>
+</Window>
+
+Görüldüğü üzere secure copy kullanımı da oldukça kolay ve faydalıdır.
