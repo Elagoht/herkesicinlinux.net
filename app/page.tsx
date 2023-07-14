@@ -16,7 +16,7 @@ const page = () => {
       Bunun yanında açık kaynaklı uygulamalar tanıtıp insanların
       ücretli ve sahipli uygulamalara alternatifler bulmasını da
       hedeflemektedir. Hedeflemekle kalmayıp kendi uygulamalarını da
-      geliştirerek bu konuda topluluğa katkuda bulunmaya
+      geliştirerek bu konuda topluluğa katkıda bulunmaya
       çalışmaktadır.
     </p>
     <h2>Kullanıcı Kitleleri</h2>
@@ -54,8 +54,11 @@ const page = () => {
       öğrenmeyi öğrenmiş kullanıcılar için yazılmış içerikleri temsil etmektedir.
     </p>
     <h2>Kitlelere Göre Video İçerikler</h2>
+    <h3 className="text-center">Genel Kullanıcı Kitlesi İçerikleri</h3>
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGIvph8XiC3TQStK2wgGOvNDd6rg7AbLz" title="YouTube video player" allowFullScreen>Tarayıcınız bu içeriği desteklemiyor.</iframe>
+    <h3 className="text-center">Deneyimli Kullanıcı Kitlesi İçerikleri</h3>
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGIvph8XiC3TswctNGtDlNRt7nNmRmeI4" title="YouTube video player" allowFullScreen>Tarayıcınız bu içeriği desteklemiyor.</iframe>
+    <h3 className="text-center">Uzman Kullanıcı Kitlesi İçerikleri</h3>
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLGIvph8XiC3ShOGgT6crsrEUBwgn16czg" title="YouTube video player" allowFullScreen>Tarayıcınız bu içeriği desteklemiyor.</iframe>
   </article >
 }
