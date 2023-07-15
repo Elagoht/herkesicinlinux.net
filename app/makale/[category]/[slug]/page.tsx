@@ -60,7 +60,7 @@ const page: FC<PageProps> = async ({ params }) => {
         <Image width={96} height={96} id="article-pp" src={getAuthorPicture(doc.author)} alt={doc.author} />
         {doc.author}
       </div>
-      <div className="flex sm:flex-col sm:items-end gap-4 flex-wrap justify-center">
+      <div className="flex sm:flex-col sm:items-end gap-2 flex-wrap justify-center">
         <div id="article-date">
           {epochToDate(doc.date)}
           <CalendarDays strokeWidth={1.5} />
@@ -71,7 +71,7 @@ const page: FC<PageProps> = async ({ params }) => {
         </Link>
         <div id="article-audience">
           {getAudienceText(doc.audience)}
-          <Image width={32} height={32} src={getAudienceAmblem(doc.audience)} alt="Kitle Amblemi" className="m-0" />
+          <Image width={24} height={24} src={getAudienceAmblem(doc.audience)} alt="Kitle Amblemi" className="m-0" />
         </div>
       </div>
     </div>
