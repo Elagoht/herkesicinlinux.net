@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server'
-import { getDocFromParams } from './page'
 import getAudienceAmblem, { getAudienceText } from '@/utils/audience'
+import getDocFromParams from '@/utils/document'
 
 export const runtime = "edge"
 

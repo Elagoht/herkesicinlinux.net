@@ -1,9 +1,7 @@
 import { getAuthorPicture } from "@/utils/author"
 import { epochToDate } from "@/utils/dates"
 import { Mdx } from "@/components/template/Mdx"
-import { allDocs } from "contentlayer/generated"
 import Image from "next/image"
-import { notFound } from "next/navigation"
 import { CalendarDays } from "lucide-react"
 import { getCategoryIcon } from "@/utils/category"
 import { capitalizeTurkish } from "@/utils/turkish"
@@ -11,18 +9,12 @@ import Link from "next/link"
 import { FC } from "react"
 import { Metadata } from 'next'
 import getAudienceAmblem, { getAudienceShortText } from "@/utils/audience"
+import getDocFromParams from "@/utils/document"
 
 type PageProps = {
   params: {
     slug: string
   }
-}
-
-export async function getDocFromParams(slug: string) {
-  const doc = allDocs.find((doc) => doc.slug === slug)
-
-  if (!doc) notFound()
-  return doc
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
