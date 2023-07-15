@@ -11,7 +11,7 @@
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacityi box-shadow, shadow, transform;
     @apply font-sans duration-300 selection:bg-bronze-500 selection:text-white
   }
-  html { @apply text-neutral-800 dark:text-neutral-200 }
+  html { @apply text-neutral-800 dark:text-neutral-200 scroll-smooth }
   article * { @apply scroll-mt-20 }
   h1,h2,h3,h4,h5,h6 { @apply !text-bronze-500 !drop-shadow-md }
   body {

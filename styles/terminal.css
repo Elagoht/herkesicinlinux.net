@@ -32,8 +32,11 @@ div.window:hover::after {
   content: "Üç kere tıklayarak tüm satırı seçebilirsiniz.";
   @apply text-neutral-200 bg-neutral-900 absolute mt-2 rounded-lg px-1 bg-opacity-80 backdrop-blur-sm
 }
+div.window * {
+  @apply font-mono
+}
 div.window a {
-  @apply font-mono no-underline
+  @apply no-underline
 }
 kbd {
 	border:1px solid #eee;
