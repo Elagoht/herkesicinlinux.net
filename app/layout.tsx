@@ -28,6 +28,20 @@ export const metadata: Metadata = {
     maximumScale: 1,
   },
   category: 'technology',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Herkes İçin Linux',
+    description: 'Linux hakkında makaleler',
+    creator: '@furkanbytekin',
+  },
+  openGraph: {
+    title: "Herkes İçin Linux",
+    description: 'Linux hakkında makaleler',
+    url: 'https://herkesicinlinux.net',
+    siteName: 'Herkes İçin Linux',
+    locale: 'tr_TR',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

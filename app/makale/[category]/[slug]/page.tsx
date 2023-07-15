@@ -17,7 +17,7 @@ type PageProps = {
   }
 }
 
-async function getDocFromParams(slug: string) {
+export async function getDocFromParams(slug: string) {
   const doc = allDocs.find((doc) => doc.slug === slug)
 
   if (!doc) notFound()
@@ -33,6 +33,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     authors: [{ name: doc.author }],
     creator: "Furkan Baytekin",
     publisher: "Furkan Baytekin",
+    twitter: {
+      card: "summary_large_image",
+      title: `${doc.title} | Herkes İçin Linux`,
+      description: doc.description,
+      creator: "@furkanbytekin",
+    },
+    openGraph: {
+      title: `${doc.title} | Herkes İçin Linux`,
+      description: doc.description,
+      url: "https://herkesicinlinux.net",
+      siteName: "Herkes İçin Linux",
+      locale: "tr_TR",
+      type: "website",
+    },
   }
 }
 
