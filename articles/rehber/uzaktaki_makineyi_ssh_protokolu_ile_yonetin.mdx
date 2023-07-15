@@ -1,0 +1,96 @@
+---
+title: Uzaktaki Makineyi SSH Protokü ile Yönetin
+description: Makineler arasında bağlantı kurmak ve onları uzaktan yönetmek kolay, peki ya her yöntem güvenli mi?
+tags: terminal, ssh, remote
+author: Furkan Baytekin
+date: 1663811387
+audience: 1
+---
+
+import { Window, Terminal, Output } from "@/components/Window"
+
+# Uzaktaki Makineyi SSH Protokü ile Yönetin
+
+## SSH Protokolü
+
+SSH, yani Secure Shell, bir iletişim protokolüdür. Kendi makinenizden, başka bir makineye bağlanırken kullanılan güvenli bir protokol olması amacıyla geliştirilmiştir. Aynı isimle geliştirilen komut ise bu protokol yardımıyla uzaktaki bir makineye bağlanmanızı sağlar.
+
+SSH olmadan önceki bağlantılar, maalesef güvenli değildir. Bu bağlantılarda, sizin bağlandığınız makineye bir başkası da bağlanabilmekteydi. Bir bilgisayar korsanının bu makineye bağlanması, sisteminize kalıcı hasarlar verme, bilgi sızıntısı yapma, fidye ve şantaja kadar varabilmesi anlamına gelir. Özellikle bir sunucu yönetiyorsanız bu, isteyeceğiniz en son şey olabilir.
+
+SSH bağlantısını güvenli yapan şey kullandığı özel (private) ve açık (public) anahtarlardır.
+
+Özel anahtar, gizli kalmalıdır. Bu anahtar, gönderilen verileri yalnızca sizin çözebilmeniz için üretilmiştir. Açık anahtarınız ise paylaşılabilirdir. Karşı taraf ya da sunucu, bu açık anahtara sahiptir.
+
+Eşleşme sırasında SSH protokolü üzerinden bağlantı isteği gönderilir. Karşı taraf, rastgele bir metin dizisi (string) üretir ve bunu açık anahtar ile şifreler. Bu şifre ancak elinizdeki özel anahtar ile çözülebilmektedir. Şifreli mesajı yine SSH protokolü üzerinden gönderir ve mesajın şifrelenmemiş halini sizden geri ister. Özel anahtarınız ile çözdüğünüz metni gönderdikten sonra karşıdaki makine ile çalışmanıza izin verilecektir. Eğer metni çözemezseniz, özel anahtarınızın olmadığı anlaşılacak ve makinede çalışmanıza izin verilmeyecektir.
+
+Bu nedenle özel anahtarınızı gizli tutmalısınız. Bir bilgisayar korsanı özel anahtarınızı ele geçirirse sizin yerinize karşı makineye bağlanabilir.
+
+Siz karşı makineye bağlandıktan sonra istediğiniz işlemleri konsol üzerinden dilediğiniz şekilde gerçekleştirebilirsiniz. Özellikle sunucu yöneticileri için oldukça kullanışlıdır. Muhtemelen hiçbir zaman fiziksel olarak görmeyecekleri bir makineye uzaktan bağlanarak sunucu işlerini gerçekleştirebilirler.
+
+SSH bağlantısı kurabilmek için önce ilgili hizmeti başlatmalısınız. Önce hizmetin durumunu kontrol edelim.
+
+<Window>
+  <Terminal> sudo systemctl status ssh.service </Terminal>
+  <Output>[sudo] password for furkan:<br />
+○ sshd.service - OpenSSH Daemon<br />
+&nbsp;Loaded: loaded (/usr/lib/systemd/system/sshd.service; <span style={{color:"yellow"}}>disabled</span>; preset: <span style={{color:"yellow"}}>disabled</span>)<br />
+&nbsp;Active: inactive (dead) </Output>
+</Window>
+
+Ardından hizmeti başlatalım.
+
+<Window>
+  <Terminal>sudo systemctl start sshd.service  </Terminal>
+</Window>
+
+Hizmet başlatıldığında bu şekilde görünmelidir.
+
+<Window>
+  <Terminal> sudo systemctl status ssh.service </Terminal>
+  <Output><span style={{color:"green"}}>●</span> sshd.service - OpenSSH Daemon<br />
+&nbsp;Loaded: loaded (/usr/lib/systemd/system/sshd.service; <span style={{color:"yellow"}}>disabled</span>; preset: <span style={{color:"yellow"}}>disabled</span>)<br />
+&nbsp;Active: <span style={{color:"green"}}>active (running)</span> since Sat 2023-07-15 20:36:14 +03; 38s ago<br />
+&nbsp;&nbsp;&nbsp;Main PID: 88148 (sshd)<br />
+&nbsp;&nbsp;Tasks: 1 (limit: 19000)<br />
+&nbsp;Memory: 2.0M<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CPU: 4ms<br />
+&nbsp;CGroup: /system.slice/sshd.service<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─88148 "sshd: /usr/bin/sshd -D [listener] 0 of 10-100 startups"<br />
+Tem 15 20:36:14 Elagoht systemd[1]: Started OpenSSH Daemon.<br />
+Tem 15 20:36:14 Elagoht sshd[88148]: Server listening on 0.0.0.0 port 22.<br />
+Tem 15 20:36:14 Elagoht sshd[88148]: Server listening on :: port 22. </Output>
+</Window>
+
+
+Ardından ip adresimizi öğrenmek için `ifconfig`, yani interface configuration komutunun çıktısına bakabiliriz.
+
+<Window>
+  <Terminal>ifconfig</Terminal>
+  <Output>{'enp11s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500'}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inet 192.168.1.103  netmask 255.255.255.0  broadcast 192.168.1.255<br />
+...</Output>
+</Window>
+
+Bağlantı kurabilmek için ssh komutuna karşı makinedeki bir kullanıcının adı, kuyruklu a ve makinenin IP adresini parametre olarak vermelisiniz.
+
+<Window>
+  <Terminal>ssh furkan@192.168.1.106</Terminal>
+</Window>
+
+Makineye ilk defa bağlanıyorsanız, açık anahtarına güvenip güvenmediğinizi soran bir soru sizi karşılar. "Yes" yazarak onay verebilirsiniz.
+
+<Window>
+  <Output>The authenticity of host '192.168.1.106 (192.168.1.106)' can't be established.<br />
+... key fingerprint is SHA256:...<br/>
+This key is not known by any other names<br/>
+Are you sure you want to continue to connecting (yes/no/[fingerprint])?</Output>
+</Window>
+
+Bağlantı doğrulanırsa, istediğiniz kullanıcının şifresi size sorulur ve giriş yapmış olursunuz.
+
+<Window>
+  <Output>furkan@192.168.1.106's password:</Output>
+  <Terminal prompt={`─[furkan]─[Elagoht]─[~]─[$]`}></Terminal>
+</Window>
+
+Makineler arasında bu şekilde bağlantı kurup komutlarınızı çalıştırabilirsiniz. Ancak dosya kopyalamak için doğrudan bu komutu kullanamazsınız. Bunun için `scp` kullanmalısınız. Bu komuta da ilgili [makaleden](/makale/rehber/scp_ile_makineler_arasi_dosya_aktarimi) ulaşabilirsiniz

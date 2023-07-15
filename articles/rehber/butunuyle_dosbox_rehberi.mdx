@@ -13,75 +13,78 @@ import {Window, Terminal, Output, Location } from "@/components/Window"
 
 ## DOSBox kurulumu
 
-DOSBox uygulama mağazanızda yer almaktadır. Oradan indirebilirsiniz ya da aşağıdaki komut ile kurulum sağlayabilirsiniz.
+DOSBox uygulama mağazanızda yer almaktadır. Oradan indirebilirsiniz ya da aşağıdaki komutlar ile kurulum sağlayabilirsiniz.
+
+Debian tabanlılarda
 
 <Window>
   <Terminal>sudo apt-get install dosbox</Terminal>
 </Window>
 
+Fedora tabanlılarda
+
+<Window>
+  <Terminal>sudo dnf install dosbox</Terminal>
+</Window>
+
+Arch tabanlılarda
+
+<Window>
+  <Terminal>sudo pacman -S dosbox</Terminal>
+</Window>
+
+
 ## DOSBox Oyun Kurulumu
 
-[http://www.bestoldgames.net/eng/](http://www.bestoldgames.net/eng/) adresi üzerinden DOS oyun romlarını zip olarak indirdikten sonra oyunları arşivden kurmak istediğiniz yere çıkarın. Tavsiyem oyunları aşağıdaki dizine kurmanızdır.
+[http://www.bestoldgames.net/eng/](http://www.bestoldgames.net/eng/) adresi üzerinden DOS oyun romlarını `zip` olarak indirdikten sonra oyunları arşivden kurmak istediğiniz yere çıkarın. Tavsiyem oyunları aşağıdaki dizine kurmanızdır.
 
 <Window>
   <Location>~/home/.dosbox/Games</Location>
 </Window>
 
-Oyunları bu konuma atarsanız aşağıda vereceğim komutları düzenlemenize gerek kalmayacaktır. DOSBox'ı bir kere çalıştırdıktan sonra ~/home/.dosbox/ dizininde config dosyası oluşacaktır. Dosyayı verdiğim config dosyası ile değiştirin.
-
-Arşiv şifresi: herkesicinlinux
-
-Config Dosyasını İndir
-
-Ardından dosyayı açın ve aşağıdaki kısımları kendinize göre değiştirin.
+Oyunları attıktan sonra bir kere dosbux'ı çalıştırıp kapatın. Aşağıdaki dizinde bir config oluşacaktır.
 
 <Window>
-  <Output>fullresolution=1920x1080<br />
-windowresolution=1280x720</Output>
+  <Location>~/home/.dosbox/</Location>
 </Window>
 
-Eğer oyunları başka bir dizine kurduysanız aşağıdaki bölümü de kendinize göre değiştirin.
+Konfigürasyon dosyasında aşağıdaki alanları kendi ekran çözünürlüğünüze göre düzenleyin
 
-<Window>
-  <Output>mount c ~/.dosbox/DOS -freesize 10000</Output>
-</Window>
+```ini
+fullresolution=1920x1080
+windowresolution=1280x720
+```
 
-Bundan sonra yapmanız gereken her oyun için bu config dosyasını çoğAltmak ve oyunu çalıştırmak içib gerekli kodları yazmak. Gözünüz korkmasın genelde kodlar çok basit olmaktadır ve bilgi gerektirmemektedir. Config dosyasındaki [autoexec] kısmında c diskini mount ettikten ve c diskini açtıktan sonra altına oyunu otomatilk çalışacak diğer kodları yazmalısınız. Blood oyunu için örnek vermek gerekirse:
+Eğer oyunları başka bir dizine kurduysanız aşağıdaki bölümü de düzenleyerek en alt kısma aşağıdaki komutu ekleyin.
 
-<Window>
-  <Output>cd blood<br />
-blood.exe</Output>
-</Window>
+```bat
+mount c ~/.dosbox/DOS -freesize 10000
+```
 
-komutlarını yazmamız gerekmektedir. Yani cd dosyaları açmak için kullanılıyor, blood.exe ise oyunu çalıştırmak için. Ancak dikkat etmeniz gerken bir nokta var. Klasör adları en fazla 8 karakter olmalıdır. Aksi takdirde DOS klasör adınının 7. ve 8. karakterini ~1 olarak deşitirecek ve geri kalanını yazmayacaktır.
+Bundan sonra yapmanız gereken her oyun için bu config dosyasını çoğaltmak ve oyunu çalıştırmak için gerekli kodları yazmak. Gözünüz korkmasın genelde kodlar çok basit olmaktadır ve bilgi gerektirmemektedir. Config dosyasındaki `[autoexec]` kısmında c diskini mount ettikten ve c diskini açtıktan sonra altına oyunu otomatik çalışacak diğer kodları yazmalısınız. Blood oyunu için örnek vermek gerekirse:
 
-Oyunlar için özel config dosyaları oluşturduktan sonra kısayolları oluşturmaya geliyor sıra. Bunun için menu editor'ünüzü açıp New Item butonuna basın. Menu editörü Cinnamon'da aşağıdaki komutla açılabilir.
+```bat
+cd blood
+blood.exe
+```
 
-<Window>
-  <Terminal>cinnamon-menu-editor</Terminal>
-</Window>
+komutlarını yazmamız gerekmektedir. Yani `cd` dosyaları açmak için kullanılıyor, `blood.exe` ise oyunu çalıştırmak için. Ancak dikkat etmeniz gerken bir nokta var. Klasör adları en fazla 8 karakter olmalıdır. Aksi takdirde DOS klasör adının 7. ve 8. karakterini ~1 olarak değiştirecek ve geri kalanını yazmayacaktır.
 
-<img src="/uploads/blogs/butunuyle_dos_rehberi/menueditor.png" />
+Oyunlar için özel konfigürasyon dosyaları oluşturduktan sonra kısayolları oluşturmaya geliyor sıra. Kısayol oluşturmak için kanaldaki ilgili videoyu izleyebilirsiniz.
 
-Ardından Name, Comment ve simge gibi alanları doldurun. Unutmayın Linux icon dosyası olarak png, jpg, jpeg, svg de dahil olmak üzere tüm resim formalarını kabul etmektedir.
+<iframe src="https://www.youtube.com/embed/Jp3cvunD_RE" title="YouTube video player" allowFullScreen></iframe>
 
-<img src="/uploads/blogs/butunuyle_dos_rehberi/launcheroptions.png" />
+Kısayol oluştururken `Exec` kısmında aşağıdaki kodları yazabilirsiniz. İlgili alanı düzenlemeyi unutmayın.
 
-window kısmına aşağıdaki kodu düzenleyip yazınız.
+```ini
+Exec=dosbox -conf /home/[Kullanıcı Adınız]/.dosbox/[Config Dosyasının Adı].conf
+```
 
-<Window>
-  <Output>dosbox -conf /home/[Kullanıcı Adınız]/.dosbox/[Config Dosyasının Adı].conf</Output>
-</Window>
+Örnek olarak şu şekilde yazabilirsiniz.
 
-örnek vermek gerekirse:
-
-<Window>
-  <Output>dosbox -conf /home/furkan/.dosbox/blood.conf</Output>
-</Window>
-
-Artık menüden oyunu masaüstüne veya docka ekleyebilirsiniz.
-
-<img src="/uploads/blogs/butunuyle_dos_rehberi/addshortcut.png" />
+```ini
+Exec=dosbox -conf /home/furkan/.dosbox/blood.conf
+```
 
 İşte kısayol ekleme işlemi tamamlandı.
 
@@ -89,11 +92,11 @@ Artık menüden oyunu masaüstüne veya docka ekleyebilirsiniz.
 
 ## İlk Başlatma
 
-Dikkat edin birçok oyun ilk seferde çalışmayacaktır. Size Setup.exe ya da Install.exe dosyasını çalıştırmanızı söyleyecektir. Dosyanın adını yazıp <kbd>Enter</kbd>tuşuna basın ve kurulumu yapın. Kurulum dosyası sizi yönlendirecektir. Kaydetme butonu <kbd>F10</kbd>ise bunu yazacaktır.
+Dikkat edin birçok oyun ilk seferde çalışmayacaktır. Size `Setup.exe` ya da Install.exe dosyasını çalıştırmanızı söyleyecektir. Dosyanın adını yazıp <kbd>Enter</kbd>tuşuna basın ve kurulumu yapın. Kurulum dosyası sizi yönlendirecektir. Kaydetme butonu <kbd>F10</kbd>ise bunu belirtecektir.
 
 <img src="/uploads/blogs/butunuyle_dos_rehberi/blood.png" />
 
-## CD İle çalışan oyunları kurma
+## CD İle Çalışan Oyunları Kurma
 
 Bunu The Elder Scrolls II: Daggerfall üzerinden örnekleyerek anlatacağım. Daggerfall indirdiğiniz zaman içinden ayrıca DFCD klasörü çıkacaktır. Bu klasör dosbox içinde cd olarak mount edilmelidir. Bunun için [autoexec]'in altına yazdığımız kodlar şu şekilde olmalıdır:
 
@@ -105,7 +108,7 @@ cd dagger<br />
 dagger.exe</Output>
 </Window>
 
-Yaptığımız şey DFCD klasörünü D harf kodlu CD olarak Daggerfall adıyla mount etmek oldu. Ardından oyunu yine aynı şekilde başlatmış oluyoruz. Ancak bu sefer dikkat etmeniz gereken şey oyunun kurulum dosyasının CD'de olmasıdır.
+Yaptığımız şey DFCD klasörünü "D" harf kodlu CD olarak Daggerfall adıyla mount etmek oldu. Ardından oyunu yine aynı şekilde başlatmış oluyoruz. Ancak bu sefer dikkat etmeniz gereken şey oyunun kurulum dosyasının CD'de olmasıdır.
 
 <Window>
   <Output>d:</Output>

@@ -1,6 +1,6 @@
 ---
 title: Çalıştırılmaması Gereken Komutlar
-description: Aman diyim burada gördüğünüz komutları çalıştırmayın. Sonrasına ben karışmam.
+description: Aman ha burada gördüğünüz komutları çalıştırmayın. Sonrasına ben karışmam.
 author: Furkan Baytekin
 tags: komut, terminal, tehlike
 date: 1686908243
@@ -9,7 +9,7 @@ audience: 0
 
 # Çalıştırmaktan Kaçınmanız Gereken Komutlar
 
-Bu videoda gösterilen hiçbir komutu doğrudan çalıştırmayın. Önce ne yaptığınızın farkında olun. Bu videonun amacı internette gördüğünüz komutları bilinçsizce çalıştırmanıza engel olmak ve bir farkındalık yaratmaktır. İnternet trolleri insanların bilgisayarlarına zarar verme fikrinden bile zevk almaktalar. Bu trollerin oyunlarına düşmeyin. Çalıştıracağınız komutların ne olduğu hakkında bir fikir sahibi olun.
+Bu makalede gösterilen hiçbir komutu doğrudan çalıştırmayın. Önce ne yaptığınızın farkında olun. Bu makalenin amacı internette gördüğünüz komutları bilinçsizce çalıştırmanıza engel olmak ve bir farkındalık yaratmaktır. İnternet trolleri insanların bilgisayarlarına zarar verme fikrinden bile zevk almaktalar. Bu trollerin oyunlarına düşmeyin. Çalıştıracağınız komutların ne olduğu hakkında bir fikir sahibi olun.
 
 Trollerin bazı oyunlarından yola çıkarak asla çalıştırmamanız gereken bazı komutlara bakalım.
 
@@ -21,7 +21,7 @@ rm -rf --no-preserve-root /
 rm -rf /*
 ```
 
-Bu komut, sistemdeki her şeyi silmeye neden olacaktır. Birçok rm komutu varyasyonu, doğrudan kök dizinini silmeye karşı korumalı olacaktır. Bu nedenle ilk komut belki işe yaramaz ancak bu korumayı ortadan kaldırmak ya da kök dizininin içindeki her şeyi sil demek yine bu işlemi gerçekleştirecektir. Bu komutu çalıştırdıktan sonra sistemde kalıcı hasarlar oluşacaktır.  Dışarıdan müdahale olmadan sistem yeniden kurulamaz. Önceki dosyaların çoğuna erişilemez.
+Bu komut, sistemdeki her şeyi silmeye neden olacaktır. Birçok `rm` komutu varyasyonu, doğrudan kök dizinini silmeye karşı korumalı olacaktır. Bu nedenle ilk komut belki işe yaramaz ancak bu korumayı ortadan kaldırmak ya da kök dizininin içindeki her şeyi sil demek yine bu işlemi gerçekleştirecektir. Bu komutu çalıştırdıktan sonra sistemde kalıcı hasarlar oluşacaktır.  Dışarıdan müdahale olmadan sistem yeniden kurulamaz. Önceki dosyaların çoğuna erişilemez.
 
 ## 2) Fork Bomb (Çatal Bombası)
 
@@ -64,7 +64,7 @@ Standart çıktı ve hata dosyaları 1 ve 2 numaralı dosyalardır. büyüktür 
 [herhangi bir komut] 2>> /mnt/HDD
 ```
 
-Belirtilen gösterimde yönlendirme karakterlerinden önce ne geldiği hiç önemli değildir. Burada asıl önemli olan çıktıların ne olduğudur. Çıktı sıradan bir metin dosyası olduğu sürece sıkıntı yoktur. Ancak örneklerde verilen dizinler bir disk ya da disk bölümünü göstermektedir. Sıradan bir komut çıktısı ile tüm diski değiştirmek demek dosyalarınızın kaybına neden olmak anlamına gelmektedir. İleri düzey dosya bir kurtarma yönetmi ile dosyalar garanti olmaksızın kurtarılabilir.
+Belirtilen gösterimde yönlendirme karakterlerinden önce ne geldiği hiç önemli değildir. Burada asıl önemli olan çıktıların ne olduğudur. Çıktı sıradan bir metin dosyası olduğu sürece sıkıntı yoktur. Ancak örneklerde verilen dizinler bir disk ya da disk bölümünü göstermektedir. Sıradan bir komut çıktısı ile tüm diski değiştirmek demek dosyalarınızın kaybına neden olmak anlamına gelmektedir. İleri düzey dosya bir kurtarma yöntemi ile dosyalar garanti olmaksızın kurtarılabilir.
 
 ## 5) Sıfırlarla Doldurma
 
@@ -89,7 +89,7 @@ Rastgele bitlerle yazmak, bitin 0'a ya da 1'e yakınlığını anlamayı imkans�
 mv XXX /dev/null
 ```
 
-Bir dosyayı taşımak veya yeniden adlandırmak için kullanılan bu komuta varış noktası olarak uzay boşluğunu (/dev/null) vermek, dosyaların yok olması anlamına gelmektedir. İleri düzey dosya kurtarma yöntemleri denenebilir.
+Bir dosyayı taşımak veya yeniden adlandırmak için kullanılan bu komuta varış noktası olarak uzay boşluğunu (`/dev/null`) vermek, dosyaların yok olması anlamına gelmektedir. İleri düzey dosya kurtarma yöntemleri denenebilir.
 
 ## 7) Dosyaları Doğrama
 
@@ -106,7 +106,6 @@ wget XXX -O - | sh -
 sh -c "$(wget XXX -O -)"
 curl -XXX XXX | sh
 sh -c (curl -XXX XXX)
-
 ```
 
 Bu komutlar bir çalıştırılabilir dosyayı indirip çalıştırmaya yarar. Dosyanın içeriği bilmeden bu komutları çalıştırmanız önerilmez. Tanımadığınız, güvenmediğiniz birinden gelen bu tarz komutları çalıştırmayın.
@@ -120,9 +119,9 @@ chmod a+rwx XXX
 chmod -R a+rwx XXX
 ```
 
-Bazı dosyalar güvenlik için, bazıları çalışma mantıkları gereği herkese kullanım izni vermemelidir. Yazma, okuma ve çalıştırma yetkileri farklı gruplara ve kullanıcılara farklı şekillerde verilmelidir. Bu komut bir bilgisayar korsanının dosyalarınıza erişmek istemesi ya da sisteminizde kalıcı hasarlar vermek istemi sonucunda karşınıza çıkabilir. Bu nedenle chmod komutunu kullanırken dikkatli olun.
+Bazı dosyalar güvenlik için, bazıları çalışma mantıkları gereği herkese kullanım izni vermemelidir. Yazma, okuma ve çalıştırma yetkileri farklı gruplara ve kullanıcılara farklı şekillerde verilmelidir. Bu komut bir bilgisayar korsanının dosyalarınıza erişmek istemesi ya da sisteminizde kalıcı hasarlar vermek istemi sonucunda karşınıza çıkabilir. Bu nedenle `chmod` komutunu kullanırken dikkatli olun.
 
-Buradakı `-R` parametresi ise dizinlerin içerisideki dosyaları da kapsamayı sağlamaktadır.
+Buradaki `-R` parametresi ise dizinlerin içerisindeki dosyaları da kapsamayı sağlamaktadır.
 
 ## 9.5) Sahiplik/Grup Değiştirme
 
@@ -143,8 +142,8 @@ chattr -XXX XXX
 chattr =XXX XXX
 ```
 
-Dosya nitelikleri `lsattr` komutuyla öğrenilebilir ve gerekmedikçe değiştirilmemelidir. Bir dosyanın silinmesi durumunda garçekleştirilecekler, dosyanın düzenlenme ve ekleme durumlarına müdahale etme, dosyanın nasıl derleneceğine karar verme gibi özelliklerini düzenleyebilen bu nitelikler bilinçsizce kullanılmamalıdır. 
+Dosya nitelikleri `lsattr` komutuyla öğrenilebilir ve gerekmedikçe değiştirilmemelidir. Bir dosyanın silinmesi durumunda gerçekleştirilecekler, dosyanın düzenlenme ve ekleme durumlarına müdahale etme, dosyanın nasıl derleneceğine karar verme gibi özelliklerini düzenleyebilen bu nitelikler bilinçsizce kullanılmamalıdır. 
 
 Örneğin `i` ile gösterilen nitelik eklendiğinde dosya `immutable` (değişmez) hale gelecektir ve root kullanıcısı tarafından dahi değiştirilemeyecektir. Elbette root kullanıcısının bu niteliği kaldırma yetkisi her zaman olacaktır.
 
-Bu videoda çalıştırmamanız ve çalıştırıken dikkat etmeniz gereken komutlara yer verdim. Umarım birkaç kişinin de olsa sorun yaşamasına engel olabilirim. Bir sonraki videoda görüşmek dileğiyle.
+Bu makalede çalıştırmamanız ve çalıştırırken dikkat etmeniz gereken komutlara yer verdim. Umarım birkaç kişinin de olsa sorun yaşamasına engel olabilirim.

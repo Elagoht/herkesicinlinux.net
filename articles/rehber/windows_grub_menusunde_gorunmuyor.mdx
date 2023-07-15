@@ -1,5 +1,5 @@
 ---
-title: Windows Grub Menüsünde Görünmüyor
+title: Windows GRUB Menüsünde Görünmüyor
 description: GRUB menünüzü güncellemeyi denediniz mi? Nasıl yapılacağını mı bilmiyor?
 author: Furkan Baytekin
 tags: windows, grub
@@ -9,7 +9,7 @@ audience: 1
 
 import {Window, Terminal, Output } from "@/components/Window"
 
-# Windows Grub Menüsünde Görünmüyor
+# Windows GRUB Menüsünde Görünmüyor
 
 ## Sorunun Nedeni
 
@@ -19,13 +19,13 @@ GRUB menüsü, öntanımlı girdileri listeler. Windows Boot Manager tanıtılma
 
 ### Kurulu İşletim Sistemlerini Otomatik Olarak Taratın
 
-Bu işlemi os-prober adını verdiğimiz araçla yapacağız. Birçok linux dağıtımında **os-prober halihazırda yüklü** gelmektedir. **Arch gibi temel bir dağıtım kullanıyorsanız** aşağıdaki komutla yükleyebilirsiniz:
+Bu işlemi `os-prober' adını verdiğimiz araçla yapacağız. Birçok Linux dağıtımında **`os-prober` halihazırda yüklü** gelmektedir. **Arch gibi kendiniz konfigüre ettiğiniz bir dağıtım kullanıyorsanız** aşağıdaki komutla yükleyebilirsiniz:
 
 <Window>
   <Terminal>sudo pacman -S os-prober</Terminal>
 </Window>
 
-Ardından düzenlemeniz gereken bir dosya var. GRUB güncelleyicinin os-prober kullanmasını sağlamak için bu düzenleme gereklidir. Bu komut ile gerekli değişikliği gerçekleştirebilirsiniz:
+Ardından düzenlemeniz gereken bir dosya var. GRUB güncelleyicinin `os-prober` kullanmasını sağlamak için bu düzenleme gereklidir. Bu komut ile gerekli değişikliği gerçekleştirebilirsiniz:
 
 <Window>
   <Terminal>sudo sed -i 's/#GRUB_DISABLE_OS_PROBER.*/GRUB_DISABLE_OS_PROBER="false"/' /etc/default/grub</Terminal>

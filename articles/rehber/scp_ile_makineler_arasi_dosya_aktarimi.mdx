@@ -3,7 +3,7 @@ title: SCP ile Makineler Arası Dosya Aktarımı
 description: Makineler arasında güvenli dosya aktarımı için de SSH protokolünü kullanabileceğinizi biliyor muydunuz?
 tags: terminal, ssh, remote
 author: Furkan Baytekin
-date: 1663608531
+date: 1663811187
 audience: 1
 ---
 
@@ -23,7 +23,7 @@ Fiziksel cihazlarla taşırken sınırlayıcınız cihazlarınızdır. **Yazma v
 
 ## SCP İşlemi Nasıl Gerçekleştirilir?
 
-Sitede yer alan SSH bağlantısı makalesinde anlatılan hizmetler başlatıldıktan ve protokol ile cihazlar tanıtıldıktan sonra `scp` komutuyla istediğiniz cihazdaki dilediğiniz dosyayı, arzuladığınız yere kopyalayabilirsiniz. Kullanım bakımından komutun normal kopyalama komutundan tek farkı dosya yolu gösterimidir. Diğer cihazdaki bir yolu gösterirken `ssh` bağlantısında olduğu gibi **kullanıcı adı, kuyruklu a (@), cihazın IP adresi** gibi verileri girdikten sonra **iki nokta (:) koyarak o cihazdaki bir yol**u gösterebilirsiniz. Bir komut örneğine göz atalım.
+Sitede yer alan [SSH bağlantısı makalesinde](/makale/rehber/uzaktaki_makineyi_ssh_protokolu_ile_yonetin) anlatılan hizmetler başlatıldıktan ve protokol ile cihazlar tanıtıldıktan sonra `scp` komutuyla istediğiniz cihazdaki dilediğiniz dosyayı, arzuladığınız yere kopyalayabilirsiniz. Kullanım bakımından komutun normal kopyalama komutundan tek farkı dosya yolu gösterimidir. Diğer cihazdaki bir yolu gösterirken `ssh` bağlantısında olduğu gibi **kullanıcı adı, kuyruklu a (@), cihazın IP adresi** gibi verileri girdikten sonra **iki nokta (:) koyarak o cihazdaki bir yol**u gösterebilirsiniz. Bir komut örneğine göz atalım.
 
 <Window>
 <Terminal>scp user@192.168.1.106:Downloads/program.pdf Documents</Terminal>
