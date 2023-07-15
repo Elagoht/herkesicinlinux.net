@@ -6,20 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fix": "sh fixcontentlayer.sh",
+    "contentlayer": "contentlayer build"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "20.4.1",
-    "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "contentlayer": "^0.3.4",
+    "next-contentlayer": "^0.3.4",
     "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9",
+    "eslint-config-next": "13.4.10",
     "lucide-react": "^0.259.0",
     "next": "13.4.10",
-    "next-contentlayer": "^0.3.4",
     "next-images": "^1.8.5",
     "postcss": "8.4.25",
     "react": "18.2.0",
@@ -29,7 +29,11 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "shiki": "^0.14.3",
-    "tailwindcss": "3.3.2",
+    "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.15",
     "typescript": "5.1.6"
   }
 }
