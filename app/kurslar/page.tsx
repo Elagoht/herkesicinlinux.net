@@ -1,6 +1,12 @@
 import Course from '@/components/Course'
 import courses from '@/data/courses'
+import { Metadata } from 'next'
 import { FC } from 'react'
+
+export const metadata: Metadata = {
+  title: "Kurslar",
+  description: "Tarafımızca verilen kurslar bu alanda listelenmektedir."
+}
 
 const page: FC = () => {
   return <article>

@@ -7,8 +7,27 @@ import Aside from '@/components/template/Aside'
 import Footer from '@/components/template/Footer'
 
 export const metadata: Metadata = {
-  title: "Herkes İçin Linux",
-  description: 'Blog posts belong to video contents',
+  title: {
+    default: "Herkes İçin Linux",
+    template: "%s | Herkes İçin Linux"
+  },
+  description: "Youtube Kanalındaki içeriklere ek olarak makaleler burada yer almaktadır.",
+  manifest: "/manifest.json",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/logo192.png',
+    apple: '/logo192.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon.png',
+    },
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  category: 'technology',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

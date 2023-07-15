@@ -9,6 +9,7 @@ import { getCategoryIcon } from "@/utils/category"
 import { capitalizeTurkish } from "@/utils/turkish"
 import Link from "next/link"
 import { FC } from "react"
+import { Metadata } from 'next'
 
 type PageProps = {
   params: {
@@ -21,6 +22,18 @@ async function getDocFromParams(slug: string) {
 
   if (!doc) notFound()
   return doc
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const doc = await getDocFromParams(params.slug)
+  return {
+    title: doc.title,
+    description: doc.description,
+    keywords: doc.tags,
+    authors: [{ name: doc.author }],
+    creator: "Furkan Baytekin",
+    publisher: "Furkan Baytekin",
+  }
 }
 
 const page: FC<PageProps> = async ({ params }) => {
