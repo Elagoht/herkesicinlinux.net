@@ -5,8 +5,18 @@ type MdxProps = {
   code: string
 }
 
+const components = {
+  a: ({ ...props }) => (
+    <a
+      target="_blank"
+      rel="noreferrer"
+      {...props}
+    />
+  ),
+}
+
 export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code)
 
-  return <Component />
+  return <Component components={components} />
 }
