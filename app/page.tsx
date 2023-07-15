@@ -34,15 +34,15 @@ const page = () => {
     </p>
     <div className="flex flex-wrap justify-evenly text-center">
       <figure>
-        <Image src="/assets/mainpage/linuxforeveryone.svg" width={256} height={256} alt="Genel Kullanıcı Kitlesi Amblemi" />
+        <Image src="/assets/linuxforeveryone.svg" width={256} height={256} alt="Genel Kullanıcı Kitlesi Amblemi" />
         <figcaption>Genel Kullanıcı Kitlesi</figcaption>
       </figure>
       <figure>
-        <Image src="/assets/mainpage/linuxforsomebody.svg" width={256} height={256} alt="Deneyimli Kullanıcı Kitlesi Amblemi" />
+        <Image src="/assets/linuxforsomebody.svg" width={256} height={256} alt="Deneyimli Kullanıcı Kitlesi Amblemi" />
         <figcaption>Deneyimli Kullanıcı Kitlesi</figcaption>
       </figure>
       <figure>
-        <Image src="/assets/mainpage/linuxfornerds.svg" width={256} height={256} alt="Uzman Kullanıcı Kitlesi Amblemi" />
+        <Image src="/assets/linuxfornerds.svg" width={256} height={256} alt="Uzman Kullanıcı Kitlesi Amblemi" />
         <figcaption>Uzman Kullanıcı Kitlesi</figcaption>
       </figure>
     </div >

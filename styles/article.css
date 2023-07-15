@@ -1,6 +1,6 @@
 article {
   @apply prose prose-neutral dark:prose-invert grow max-w-none mx-auto
-  prose-pre:card dark:prose-pre:!bg-neutral-950 
+  dark:prose-pre:!bg-neutral-950 
   prose-img:mx-auto
   prose-th:border prose-th:border-neutral-400 
   dark:prose-th:border-neutral-700 prose-th:text-bronze-200 prose-th:p-4
@@ -10,8 +10,8 @@ article {
   prose-td:border
 }
 article table tr:nth-child(odd) {
- @apply bg-neutral-400 dark:bg-neutral-900 bg-opacity-30
+@apply bg-neutral-400 dark:bg-neutral-900 bg-opacity-30
 }
 article table tr:hover {
   @apply bg-neutral-400 dark:bg-neutral-700 bg-opacity-50
- }
+}

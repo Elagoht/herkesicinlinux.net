@@ -17,7 +17,7 @@ const computedFields = {
   slug: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
-  }
+  },
 }
 
 export const Doc = defineDocumentType(() => ({
@@ -49,6 +49,10 @@ export const Doc = defineDocumentType(() => ({
       type: "boolean",
       default: true,
     },
+    audience: {
+      type: "number",
+      default: 0
+    }
   },
   computedFields,
 }))

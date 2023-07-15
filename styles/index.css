@@ -35,6 +35,7 @@
   }
   body > div { @apply max-w-7xl mx-auto max-xs:mb-24 xs:mt-24 }
   main { @apply flex-grow}
+  article pre { @apply card }
   article iframe { @apply aspect-video lg:w-2/3 w-full mx-auto my-8 shadow-lg !rounded-xl border-2 border-bronze-500 }
   article figure { @apply my-4}
   article figcaption { @apply text-base font-bold }
@@ -54,7 +55,7 @@
     @apply flex gap-4 items-center font-bold text-xl max-sm:flex-col
   }
   #article-pp { @apply m-0 card rounded-full border-2 shadow-md }
-  #article-category, #article-date {
+  #article-category, #article-date, #article-audience {
     @apply flex gap-2 justify-center items-center leading-none max-sm:flex-row-reverse no-underline text-inherit
   }
   #article-info svg {
@@ -140,6 +141,7 @@
   #footer-container section ul a li svg {
     @apply flex-shrink-0 text-bronze-500
   }
+  div.window { @apply card }
 }
 
 @layer utilities {

@@ -1,6 +1,6 @@
 div.window {
   box-shadow: 0 .5em .75em -.15em #0008;
-  @apply pt-[42px] m-4 p-1 card
+  @apply pt-[42px] m-4 p-1
 }
 div.window::before {
   @apply content-empty bg-metacity dark:invert dark:hue-rotate-180 block absolute w-[5.625rem] mb-[0.1875rem] -mt-[2.3125rem] h-[1.375rem]

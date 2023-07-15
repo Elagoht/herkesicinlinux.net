@@ -10,6 +10,7 @@ import { capitalizeTurkish } from "@/utils/turkish"
 import Link from "next/link"
 import { FC } from "react"
 import { Metadata } from 'next'
+import getAudienceAmblem, { getAudienceText } from "@/utils/audience"
 
 type PageProps = {
   params: {
@@ -59,7 +60,7 @@ const page: FC<PageProps> = async ({ params }) => {
         <Image width={96} height={96} id="article-pp" src={getAuthorPicture(doc.author)} alt={doc.author} />
         {doc.author}
       </div>
-      <div className="flex sm:flex-col sm:items-end gap-4 flex-wrap">
+      <div className="flex sm:flex-col sm:items-end gap-4 flex-wrap justify-center">
         <div id="article-date">
           {epochToDate(doc.date)}
           <CalendarDays strokeWidth={1.5} />
@@ -68,6 +69,10 @@ const page: FC<PageProps> = async ({ params }) => {
           {capitalizeTurkish(doc.category)}
           {getCategoryIcon(doc.category)}
         </Link>
+        <div id="article-audience">
+          {getAudienceText(doc.audience)}
+          <Image width={32} height={32} src={getAudienceAmblem(doc.audience)} alt="Kitle Amblemi" className="m-0" />
+        </div>
       </div>
     </div>
     <Mdx code={doc.body.code} />
