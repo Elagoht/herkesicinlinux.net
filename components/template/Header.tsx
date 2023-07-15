@@ -1,6 +1,6 @@
 "use client"
 import { FC } from "react"
-import { Contact, FileText, GraduationCap, Home, Package, Youtube } from "lucide-react"
+import { FileText, GraduationCap, Home, Package } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
