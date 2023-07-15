@@ -10,7 +10,7 @@ import { capitalizeTurkish } from "@/utils/turkish"
 import Link from "next/link"
 import { FC } from "react"
 import { Metadata } from 'next'
-import getAudienceAmblem, { getAudienceText } from "@/utils/audience"
+import getAudienceAmblem, { getAudienceShortText } from "@/utils/audience"
 
 type PageProps = {
   params: {
@@ -70,7 +70,7 @@ const page: FC<PageProps> = async ({ params }) => {
           {getCategoryIcon(doc.category)}
         </Link>
         <div id="article-audience">
-          {getAudienceText(doc.audience)}
+          {getAudienceShortText(doc.audience)}
           <Image width={24} height={24} src={getAudienceAmblem(doc.audience)} alt="Kitle Amblemi" className="m-0" />
         </div>
       </div>
