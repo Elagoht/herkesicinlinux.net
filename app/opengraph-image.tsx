@@ -28,7 +28,7 @@ export default async function Image() {
         gap: 20
       }}
     >
-      <img src="http://localhost:3000/apple-touch-icon.png" alt="amblem" width={384} height={384} />
+      <img src="https://www.herkesicinlinux.net/apple-touch-icon.png" alt="amblem" width={384} height={384} />
       <span style={{ color: "#af907d", fontSize: 64 }}>Herkes İçin Linux</span>
       <span style={{ fontSize: 48 }}>Genel Kullanıcı Kitlesi</span>
     </div>,

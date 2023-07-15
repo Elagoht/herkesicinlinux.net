@@ -42,7 +42,7 @@ Arch tabanlılarda
   <Location>~/home/.dosbox/Games</Location>
 </Window>
 
-Oyunları attıktan sonra bir kere dosbux'ı çalıştırıp kapatın. Aşağıdaki dizinde bir config oluşacaktır.
+Oyunları attıktan sonra bir kere dosbox'ı çalıştırıp kapatın. Aşağıdaki dizinde bir konfigürasyon oluşacaktır.
 
 <Window>
   <Location>~/home/.dosbox/</Location>
@@ -61,14 +61,14 @@ Eğer oyunları başka bir dizine kurduysanız aşağıdaki bölümü de düzenl
 mount c ~/.dosbox/DOS -freesize 10000
 ```
 
-Bundan sonra yapmanız gereken her oyun için bu config dosyasını çoğaltmak ve oyunu çalıştırmak için gerekli kodları yazmak. Gözünüz korkmasın genelde kodlar çok basit olmaktadır ve bilgi gerektirmemektedir. Config dosyasındaki `[autoexec]` kısmında c diskini mount ettikten ve c diskini açtıktan sonra altına oyunu otomatik çalışacak diğer kodları yazmalısınız. Blood oyunu için örnek vermek gerekirse:
+Bundan sonra yapmanız gereken her oyun için bu konfigürasyon dosyasını çoğaltmak ve oyunu çalıştırmak için gerekli kodları yazmak. Gözünüz korkmasın genelde kodlar çok basit olmaktadır ve bilgi gerektirmemektedir. Konfigürasyon dosyasındaki `[autoexec]` kısmında c diskini mount ettikten ve c diskini açtıktan sonra altına oyunu otomatik çalışacak diğer kodları yazmalısınız. Blood oyunu için örnek vermek gerekirse:
 
 ```bat
 cd blood
 blood.exe
 ```
 
-komutlarını yazmamız gerekmektedir. Yani `cd` dosyaları açmak için kullanılıyor, `blood.exe` ise oyunu çalıştırmak için. Ancak dikkat etmeniz gerken bir nokta var. Klasör adları en fazla 8 karakter olmalıdır. Aksi takdirde DOS klasör adının 7. ve 8. karakterini ~1 olarak değiştirecek ve geri kalanını yazmayacaktır.
+komutlarını yazmamız gerekmektedir. Yani `cd` dosyaları açmak için kullanılıyor, `blood.exe` ise oyunu çalıştırmak için. Ancak dikkat etmeniz gereken bir nokta var. Klasör adları en fazla 8 karakter olmalıdır. Aksi takdirde DOS klasör adının 7. ve 8. karakterini ~1 olarak değiştirecek ve geri kalanını yazmayacaktır.
 
 Oyunlar için özel konfigürasyon dosyaları oluşturduktan sonra kısayolları oluşturmaya geliyor sıra. Kısayol oluşturmak için kanaldaki ilgili videoyu izleyebilirsiniz.
 
@@ -77,7 +77,7 @@ Oyunlar için özel konfigürasyon dosyaları oluşturduktan sonra kısayolları
 Kısayol oluştururken `Exec` kısmında aşağıdaki kodları yazabilirsiniz. İlgili alanı düzenlemeyi unutmayın.
 
 ```ini
-Exec=dosbox -conf /home/[Kullanıcı Adınız]/.dosbox/[Config Dosyasının Adı].conf
+Exec=dosbox -conf /home/[Kullanıcı Adınız]/.dosbox/[Konfigürasyon Dosyasının Adı].conf
 ```
 
 Örnek olarak şu şekilde yazabilirsiniz.
@@ -92,7 +92,7 @@ Exec=dosbox -conf /home/furkan/.dosbox/blood.conf
 
 ## İlk Başlatma
 
-Dikkat edin birçok oyun ilk seferde çalışmayacaktır. Size `Setup.exe` ya da Install.exe dosyasını çalıştırmanızı söyleyecektir. Dosyanın adını yazıp <kbd>Enter</kbd>tuşuna basın ve kurulumu yapın. Kurulum dosyası sizi yönlendirecektir. Kaydetme butonu <kbd>F10</kbd>ise bunu belirtecektir.
+Dikkat edin birçok oyun ilk seferde çalışmayacaktır. Size `Setup.exe` ya da Install.exe dosyasını çalıştırmanızı söyleyecektir. Dosyanın adını yazıp <kbd>Enter</kbd> tuşuna basın ve kurulumu yapın. Kurulum dosyası sizi yönlendirecektir. Kaydetme butonu <kbd>F10</kbd> ise bunu belirtecektir.
 
 <img src="/uploads/blogs/butunuyle_dos_rehberi/blood.png" />
 
@@ -114,7 +114,7 @@ Yaptığımız şey DFCD klasörünü "D" harf kodlu CD olarak Daggerfall adıyl
   <Output>d:</Output>
 </Window>
 
-yazdıktan sonra <kbd>Tab</kbd>tuşuna basarak kurulum dosyasını bulabilir ve kurulumu gerçekleştirebilirsiniz.
+yazdıktan sonra <kbd>Tab</kbd> tuşuna basarak kurulum dosyasını bulabilir ve kurulumu gerçekleştirebilirsiniz.
 
 <img src="/uploads/blogs/butunuyle_dos_rehberi/daggerfall.png" />
 
