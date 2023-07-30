@@ -34,8 +34,8 @@
     @apply bg-bronze-500 bg-opacity-40 dark:bg-bronze-500 dark:bg-opacity-40 text-neutral-950 dark:text-neutral-200
   }
   body > div { @apply max-w-7xl mx-auto max-xs:mb-24 xs:mt-24 }
-  main { @apply flex-grow}
-  article pre { @apply card }
+  main { @apply flex-grow max-w-[calc(100%_-_17rem)] }
+  article pre { @apply card max-w-full overflow-x-auto w-full }
   article iframe { @apply aspect-video lg:w-2/3 w-full mx-auto my-8 shadow-lg !rounded-xl border-2 border-bronze-500 }
   article figure { @apply my-4}
   article figcaption { @apply text-base font-bold }
